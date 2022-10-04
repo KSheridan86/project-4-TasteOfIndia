@@ -7,3 +7,7 @@ def recipes(request):
 
 def recipe(request):
     return render(request, 'recipeapp/recipe.html')
+
+
+def landingpage(request):
+    return render(request, 'recipeapp/landingpage.html')
