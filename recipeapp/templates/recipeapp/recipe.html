@@ -2,9 +2,12 @@
 {% load static %}
 {% block content %}
 
-<main class="container text-center g-5">
+<main class="container text-center g-5 mt-5">
     <a href="{% url 'update_recipe' recipe.id %}">
         <button class="addrecipe-btn border border-dark border-2 rounded-4 mt-5 mb-2">Update Recipe</button>
+    </a>
+    <a href="{% url 'delete_recipe' recipe.id %}">
+        <button class="addrecipe-btn border border-dark border-2 rounded-4 mt-5 mb-2">Delete Recipe</button>
     </a>
 
     <div id="single-recipe" class="row justify-content-around justify-content-lg-start mt-5 mt-lg-0">

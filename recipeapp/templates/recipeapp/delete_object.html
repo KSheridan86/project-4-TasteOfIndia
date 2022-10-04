@@ -1,0 +1,30 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block content %}
+
+
+<div class="container">
+
+    <div class="row justify-content-center g-0">
+        <div
+            class="col-11 col-md-6 col-xl-4 p-2 mb-5 card-welcome border border-dark border-2 rounded-4 justify-content-center">
+
+            <form action="" method="POST">
+                {% csrf_token %}
+                <p>Are you sure you want to delete "{{object}}"??</p>
+                <button type="submit" class="btn btn-primary">
+                    <a class="login-register" href="{% url 'recipes' %}">
+                        Back
+                    </a>
+                </button>
+                
+                <button type="submit" class="btn btn-primary">
+                    <a class="login-register" type="submit" value="Confirm">Confirm</a>
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+{% endblock content %}

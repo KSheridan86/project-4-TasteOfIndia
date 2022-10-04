@@ -52,5 +52,17 @@ def update_recipe(request, pk):
     return render(request, 'recipeapp/recipe_form.html', context)
 
 
+def delete_recipe(request, pk):
+    profile = request.user.profile
+    recipe = profile.recipe_set.get(id=pk)
+    if request.method == 'POST':
+        recipe.delete()
+        return redirect('recipes')
+    context = {
+        'object': recipe
+    }
+    return render(request, 'recipeapp/delete_object.html', context)
+
+
 def landingpage(request):
     return render(request, 'recipeapp/landingpage.html')
