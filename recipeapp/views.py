@@ -1,3 +1,9 @@
 from django.shortcuts import render
 
-# Create your views here.
+
+def recipes(request):
+    return render(request, 'recipeapp/recipes.html')
+
+
+def recipe(request):
+    return render(request, 'recipeapp/recipe.html')
