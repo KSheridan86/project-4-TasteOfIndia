@@ -36,5 +36,21 @@ def create_recipe(request):
     return render(request, 'recipeapp/recipe_form.html', context)
 
 
+def update_recipe(request, pk):
+    profile = request.user.profile
+    recipe = profile.recipe_set.get(id=pk)
+    form = RecipeForm(instance=recipe)
+    if request.method == 'POST':
+        form = RecipeForm(request.POST, request.FILES, instance=recipe)
+        if form.is_valid():
+            form.save()
+            return redirect('recipes')
+
+    context = {
+        'form': form
+    }
+    return render(request, 'recipeapp/recipe_form.html', context)
+
+
 def landingpage(request):
     return render(request, 'recipeapp/landingpage.html')
