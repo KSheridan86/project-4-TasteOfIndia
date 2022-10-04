@@ -1,6 +1,57 @@
 {% extends 'main.html' %}
-
+{% load static %}
 {% block content %}
+<!-- Search Bar -->
+<form id="searchForm" action="" method="get" class="d-flex justify-content-center" role="search">
+    <label for="search"></label>
+    <input class="form-control search-bar me-2" id="search" type="text" name="search_query" value=""
+        placeholder="Chefs, Recipes, Ingredients..." aria-label="Search">
+    <br>
+    <button class="search-btn btn btn-outline-success" type="submit">Search</button>
+</form>
 
+
+<!-- Recipe cards -->
+<main class="container text-center g-5">
+    <a href="">
+        <button class="addrecipe-btn border border-dark border-2 rounded-4 mt-3 mb-2">Add Recipe</button>
+    </a>
+
+    <div class="row justify-content-center">
+        {% for recipe in recipes %}
+        <div
+            class="card border border-dark border-2 rounded-4 mt-1 col-12 col-md-5 col-lg-3 col-xl-3 g-5 mx-2 ms-xl-3 mb-5">
+            <a href="{% url 'recipe' recipe.id %}">
+                <img class="card-img-top-recipe border border-dark border-2 rounded-4 mt-4 mb-2"
+                    src="{{recipe.featured_image.url}}" alt="Card image cap">
+            </a>
+
+            <a class="author recipe-title" href="">
+                <p>{{recipe.title}}</p>
+            </a>
+            <p>by:</p>
+
+            <!-- Author -->
+            <a href="" class="author">{{recipe.owner.name}}</a>
+            <hr>
+            <!-- Tags -->
+            <div>
+
+                {% for tag in recipe.tags.all %}
+                <span class="badge">{{tag}}</span>
+                {% endfor %}
+                
+
+            </div>
+            <hr>
+            <!-- Info-Excerpt -->
+            <p class="card-text">
+                {{recipe.description}}
+            </p>
+        </div>
+        {% endfor %}
+    </div>
+
+</main>
 
 {% endblock content %}
