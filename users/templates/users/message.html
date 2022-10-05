@@ -1,0 +1,29 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block content %}
+
+
+
+  <div class="container">
+    <div class="row justify-content-center g-0 mt-2">
+      <a href=""><button class="btn back-btn">Back</button></a>
+      <div class="col-12 col-md-8 col-lg-7 col-xl-5 p-4 card-message border border-dark border-2 rounded-4">
+        <div class="col-12 card-message">
+          <h4>Message from:</h4>
+          <span class="msg-txt"></span>
+          <hr>
+          <h4>Subject:</h4>
+          <span class="msg-txt"></span>
+          <hr>
+          <h4>Message:</h4>
+          <span class="msg-txt"></span>
+          <br>
+          <a href=""><button class="btn">Reply</button></a>
+          <a href=""><button class="btn">Delete</button></a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+{% endblock %}
