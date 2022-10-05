@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'cloudinary_storage',
     'django.contrib.staticfiles',
     'cloudinary',
-    'recipeapp',
+    'recipeapp.apps.RecipeappConfig',
 ]
 
 MIDDLEWARE = [
@@ -84,7 +84,6 @@ WSGI_APPLICATION = 'pp4tasteofindia.wsgi.application'
 DATABASES = {
    'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
 }
-
 
 
 # Password validation
