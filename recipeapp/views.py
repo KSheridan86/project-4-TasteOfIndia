@@ -65,4 +65,4 @@ def delete_recipe(request, pk):
 
 
 def landingpage(request):
-    return render(request, 'recipeapp/landingpage.html')
+    return render(request, 'landingpage.html')

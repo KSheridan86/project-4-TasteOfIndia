@@ -1,0 +1,56 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block content %}
+
+<!-- Search Bar -->
+<form id="searchForm" action="" method="get" class="d-flex justify-content-center" role="search">
+    <label for="search"></label>
+    <input class="form-control search-bar me-2" id="search" type="text" name="search_query" value=""
+        placeholder="Search Users..." aria-label="Search">
+    <br>
+    <button class="search-btn btn btn-outline-success" type="submit">Search</button>
+</form>
+
+<!-- Chef cards -->
+<main class="container text-center g-5">
+
+    <div class="row justify-content-center">
+        <div
+            class="card justify-content-center p-2 border border-dark border-2 rounded-4 mb-5 mt-3 mt-md-3 mt-lg-3 col-12 col-md-5 col-lg-3 mx-2">
+            <div class="row p-2">
+                <div class="col-12 p-auto m-auto">
+                    <div class="pic-frame m-auto">
+                        <a href="">
+                            <img class="chef-profile border border-dark border-2 rounded-4" src="" alt="Card image cap">
+                        </a>
+                    </div>
+
+
+                    <div class="card-body">
+                        <!-- Title -->
+                        <a class="author recipe-title" href="">
+                            <p class="card-title"></p>
+                        </a>
+                        <hr>
+                        <p>Quote:</p>
+                        <hr>
+                        <p class="card-text"></p>
+                        <hr>
+                        <div class="card-body">
+
+                            <a href="" target="_blank" class="social"><i class="fa-brands fa-square-github"></i></a>
+                            <a href="" target="_blank" class="social"><i class="fa-brands fa-linkedin"></i></a>
+                            <a href="" target="_blank" class="social"><i class="fa-brands fa-square-youtube"></i></a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+</main>
+
+{% endblock content %}

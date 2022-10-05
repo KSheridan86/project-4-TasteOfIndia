@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'cloudinary',
     'recipeapp.apps.RecipeappConfig',
+    'users.apps.UsersConfig',
 ]
 
 MIDDLEWARE = [
