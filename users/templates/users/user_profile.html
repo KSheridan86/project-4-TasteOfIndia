@@ -1,0 +1,166 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block content %}
+
+<main class="container text-center g-5">
+
+    <div id="myprofile" class="row justify-content-lg-start justify-content-center">
+
+        <div
+            class="card card-account border border-dark border-2 rounded-4 col-12 col-md-10 col-lg-4 col-xl-4 justify-content-center justify-content-md-start ">
+            <div class="row p-2">
+                <div class=" m-auto p-auto mt-3 mt-lg-4 col-md-6 col-lg-5 col-xl-6">
+                    <img class="chef-profile border border-dark border-2 rounded-4 offset-lg-0"
+                        src="{{profile.profile_image.url}}" alt="Card image cap">
+
+                    <div class="card-body">
+                        <!-- Title -->
+                        <h5 class="recipe-title">{{profile.name}}</h5>
+
+                        <a href="">
+                            <button id="msg-btn" class="btn">Edit Profile</button>
+                        </a>
+
+                        <a href="">
+                            <button id="msg-btn" class="btn">Send Message</button>
+                        </a>
+
+
+                    </div>
+                    <div class="card-body">
+                        {% if profile.social_github %}
+                        <a href="{{profile.social_github}}" target="_blank" class="social"><i
+                                class="fa-brands fa-square-github"></i></a>
+                        {% endif %}
+                        {% if profile.social_linkedin %}
+                        <a href="{{profile.social_linkedin}}" target="_blank" class="social"><i
+                                class="fa-brands fa-linkedin"></i></a>
+                        {% endif %}
+                        {% if profile.social_youtube %}
+                        <a href="{{profile.social_youtube}}" target="_blank" class="social"><i
+                                class="fa-brands fa-square-youtube"></i></a>
+                        {% endif %}
+                        {% if profile.social_twitter %}
+                        <a href="{{profile.social_twitter}}" target="_blank" class="social"><i
+                                class="fa-brands fa-square-youtube"></i></a>
+                        {% endif %}
+                        {% if profile.social_website %}
+                        <a href="{{profile.social_website}}" target="_blank" class="social"><i
+                                class="fa-brands fa-square-youtube"></i></a>
+                        {% endif %}
+
+                    </div>
+                </div>
+                <!-- This div below is where to place a quote etc to show beside picture -->
+
+                <div class="col-md-6 p-md-3 col-lg-7 col-xl-6">
+                    <p class="bio">{{profile.short_intro}}</p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <div id="profile-content" class="row justify-content-center justify-content-lg-end">
+
+        <div id="profile-details"
+            class="card border border-dark border-2 rounded-4 col-12 col-md-10 col-lg-7 col-xl-6 p-4 m-0 m-xl-3">
+
+            <div>
+                <hr>
+                <h5 class="card-title">Quote:</h5>
+                <hr>
+                <p class="bio">{{profile.quote}}</p>
+            </div>
+
+            <div class="justify-content-center">
+                <hr>
+                <h5 class="card-title">Bio:</h5>
+                <hr>
+                <p class="bio">{{profile.bio}}</p>
+            </div>
+        </div>
+
+
+        <div id="profile-details"
+            class="card border border-dark border-2 rounded-4 col-12 col-md-10 col-lg-7 col-xl-6 p-4 m-0 m-xl-3 mt-3 mb-5 mb-xl-5">
+            <h5 class="card-title">My Recipes:</h5>
+            <hr>
+            {% for recipe in profile.recipe_set.all %}
+            <ul>
+
+                <li class="recipe-li">
+                    <span class="recipe-li-title">{{recipe.title}}</span>
+                </li>
+                <li class="li">
+                    <span>
+
+                        <a href="{% url 'recipe' recipe.id %}">
+                            <img class="thumbnail-img border border-dark border-2 rounded-4" src="{{recipe.featured_image.url}}"
+                                alt="Card image cap"></a>
+
+                    </span>
+                    <span>
+
+                        <a href="">
+                            <button class="recipe-li-btn border border-dark border-2 rounded-4">Delete</button>
+                        </a>
+
+                        <a href="">
+                            <button class="recipe-li-btn border border-dark border-2 rounded-4">Edit</button>
+                        </a>
+
+                    </span>
+                </li>
+
+            </ul>
+            {% endfor %}
+
+            <a href="">
+                <button class="recipe-li-btn border border-dark border-2 rounded-4 m-auto">Add Recipe</button>
+            </a>
+
+
+        </div>
+
+        <div id="profile-details"
+            class="card border border-dark border-2 rounded-4 col-12 col-md-10 col-lg-7 col-xl-6 p-4 m-0 m-xl-3 mt-3 mb-5">
+            <h5 class="card-title">My Recipes:</h5>
+            <hr>
+            {% for recipe in profile.recipe_set.all %}
+            <div class="card-body row">
+
+                <a href="{% url 'recipe' recipe.id %}">
+                    <img class="recipe-img col-12 border border-dark border-2 rounded-4" src="{{recipe.featured_image.url}}" alt="Card image cap">
+                </a>
+
+                <a class="card-title" href="{% url 'recipe' recipe.id %}">
+                    <h5>{{recipe.title}}</h5>
+                </a>
+                <p>by:</p>
+                <a href="" class="author">{{recipe.owner.name}}</a>
+
+                <hr>
+                <div>
+                    {% for tag in recipe.tags.all %}
+                    <span class="badge">{{tag}}</span>
+                    {% endfor %}
+
+                </div>
+                <hr>
+
+                <p class="bio">{{recipe.description}}
+                </p>
+
+            </div>
+            {% endfor %}
+            <hr>
+
+        </div>
+
+
+    </div>
+
+</main>
+{% endblock %}

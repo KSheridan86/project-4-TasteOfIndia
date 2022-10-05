@@ -15,38 +15,50 @@
 <main class="container text-center g-5">
 
     <div class="row justify-content-center">
+        {% for profile in profiles %}
         <div
             class="card justify-content-center p-2 border border-dark border-2 rounded-4 mb-5 mt-3 mt-md-3 mt-lg-3 col-12 col-md-5 col-lg-3 mx-2">
             <div class="row p-2">
                 <div class="col-12 p-auto m-auto">
                     <div class="pic-frame m-auto">
-                        <a href="">
-                            <img class="chef-profile border border-dark border-2 rounded-4" src="" alt="Card image cap">
+                        <a href="{% url 'user_profile' profile.id %}">
+                            <img class="chef-profile border border-dark border-2 rounded-4" src="{{profile.profile_image.url}}" alt="Card image cap">
                         </a>
                     </div>
 
 
                     <div class="card-body">
                         <!-- Title -->
-                        <a class="author recipe-title" href="">
-                            <p class="card-title"></p>
+                        <a class="author recipe-title" href="{% url 'user_profile' profile.id %}">
+                            <p class="card-title">{{profile.name}}</p>
                         </a>
                         <hr>
                         <p>Quote:</p>
                         <hr>
-                        <p class="card-text"></p>
+                        <p class="card-text">{{profile.quote|slice:'150'}}</p>
                         <hr>
                         <div class="card-body">
-
-                            <a href="" target="_blank" class="social"><i class="fa-brands fa-square-github"></i></a>
-                            <a href="" target="_blank" class="social"><i class="fa-brands fa-linkedin"></i></a>
-                            <a href="" target="_blank" class="social"><i class="fa-brands fa-square-youtube"></i></a>
-
+                            {% if profile.social_github %}
+                            <a href="{{profile.social_github}}" target="_blank" class="social"><i class="fa-brands fa-square-github"></i></a>
+                            {% endif %}
+                            {% if profile.social_linkedin %}
+                            <a href="{{profile.social_linkedin}}" target="_blank" class="social"><i class="fa-brands fa-linkedin"></i></a>
+                            {% endif %}
+                            {% if profile.social_youtube %}
+                            <a href="{{profile.social_youtube}}" target="_blank" class="social"><i class="fa-brands fa-square-youtube"></i></a>
+                            {% endif %}
+                            {% if profile.social_twitter %}
+                            <a href="{{profile.social_twitter}}" target="_blank" class="social"><i class="fa-brands fa-square-youtube"></i></a>
+                            {% endif %}
+                            {% if profile.social_website %}
+                            <a href="{{profile.social_website}}" target="_blank" class="social"><i class="fa-brands fa-square-youtube"></i></a>
+                            {% endif %}
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        {% endfor %}
 
     </div>
 
