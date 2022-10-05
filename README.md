@@ -264,7 +264,7 @@ Implementation:
 
 User Story:
 
-> US#33 - Recipe Searching - As a User, I would like to be able to find recipes, so that I can increase the variety of meals we consume.
+> Recipe Searching - As a User, I would like to be able to find recipes, so that I can increase the variety of meals we consume.
 
 Acceptance Criteria:
 * Given that I am a user of the website when I navigate to the homepage then I can access a link to all the recipes
@@ -460,9 +460,9 @@ Seperate to the functionality testing of the site, and the testing of the code, 
 
 Testing was divided into different sections to ensure everything was tested individually with test cases developed for each area.
 
-[Testing Schedule Overview](/assets/testing/test-schedule.pdf)
+[Testing Schedule Overview]()
 
-A full detailed breakdown of the testing procedures and methodology can be found in the testing.md file [here](TESTING.md)
+A full detailed breakdown of the testing procedures and methodology can be found in the testing.md file [here]()
 
 #### Validator Testing
 All code files were validated using suitable validators for the specific language. The full details can be found in the testing.md file.
@@ -560,14 +560,14 @@ To deploy the project through Heroku I followed these steps:
 By forking the GitHub Repository you can make a copy of the original repository to view or change without it effecting the original repository
 This can be done by
     * Log into GitHub or create an account.
-    * Locate the repository at https://github.com/MattBCoding/pp4-the-pantry .
+    * Locate the repository at https://github.com/KSheridan86/project-4-TasteOfIndia .
     * At the top of the repository, on the right side of the page, select "Fork" from the buttons available.
     * A copy of the repository should now be created in your own repository.
 
 #### Create a clone of this repository
 Creating a clone enables you to make a copy of the repository at that point in time - this lets you run a copy of the project locally:
 This can be done by:
-* Navigate to https://github.com/MattBCoding/pp4-the-pantry
+* Navigate to https://github.com/KSheridan86/project-4-TasteOfIndia
 * click on the arrow on the green code button at the top of the list of files
 * select the clone by https option and copy the URL it provides to the clipboard
 * navigate to your code editor of choice and within the terminal change the directory to the location you want to clone the repository to.
