@@ -212,6 +212,13 @@ footer>p {
     width: 2rem;
     margin-left: .5rem;
 }
+.donkey-icon {
+    height: 2rem;
+    width: 2rem;
+    margin-left: .5rem;
+    margin-right: 1rem;
+    margin-bottom: .5rem;
+}
 
 /* landing page styles */
 .welcome-msg {
