@@ -52,12 +52,15 @@
                         <a class="nav-link" aria-current="page" href="">Inbox</a>
                     </li>
                     <hr>
+                    {% if request.user.is_authenticated %}
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="">Logout</a>
+                        <a class="nav-link" aria-current="page" href="{% url 'sign_out' %}">Logout</a>
                     </li>
+                    {% else %}
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="">Login</a>
+                        <a class="nav-link" aria-current="page" href="{% url 'sign_in' %}">Login</a>
                     </li>
+                    {% endif %}
                 </ul>
             </div>
         </div>
