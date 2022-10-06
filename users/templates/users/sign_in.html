@@ -2,6 +2,7 @@
 {% load static %}
 {% block content %}
 
+{% if page == 'sign_in' %}
 
 <main class="container">
 
@@ -22,17 +23,45 @@
                 </div>
 
                 <small style="color: red;"><b></b></small>
-                
+
                 <button type="submit" class="btn btn-primary">
                     <a class="login-register" href="{% url 'sign_in' %}">Log In</a>
                 </button>
                 <hr>
                 <p>Don't have an account? <br> Register here...</p>
-                <button type="submit" class="btn btn-primary"><a class="login-register" href="">Register</a></button>
+                <button type="submit" class="btn btn-primary"><a class="login-register" href="{% url 'register' %}">Register</a></button>
             </form>
         </div>
     </div>
 
 </main>
+
+{% else %}
+<main class="container">
+    <div id="loginbox" class="row justify-content-center g-0 mb-5">
+        <div
+            class="col-11 col-md-6 col-lg-5 col-xl-4 p-2 card-welcome border border-dark border-2 rounded-4 justify-content-center">
+
+            <form method="POST" action="{% url 'register' %}">
+
+                {% csrf_token %}
+                {% for field in form %}
+                <label for="inputtxt">{{field.label}}</label>
+                {{field}}
+
+                {% endfor %}
+                <input type="submit" value="Register" class="btn btn-primary" />
+                
+                <hr>
+                <p>Already have an account? <br> Sign in here...</p>
+                <button type="submit" class="btn btn-primary"><a class="login-register" href="{% url 'sign_in' %}">Sign In</a>
+                </button>
+            </form>
+        </div>
+    </div>
+
+</main>
+
+{% endif %}
 
 {% endblock %}
