@@ -43,16 +43,15 @@
                         <a class="nav-link" href="{% url 'profiles' %}">Chefs</a>
                     </li>
                     <hr>
+                    {% if request.user.is_authenticated %}
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page"
-                            href="">Profile</a>
+                        <a class="nav-link" aria-current="page" href="">Profile</a>
                     </li>
                     <hr>
                     <li class="nav-item">
                         <a class="nav-link" aria-current="page" href="">Inbox</a>
                     </li>
                     <hr>
-                    {% if request.user.is_authenticated %}
                     <li class="nav-item">
                         <a class="nav-link" aria-current="page" href="{% url 'sign_out' %}">Logout</a>
                     </li>
@@ -69,6 +68,17 @@
     <!-- Hero image -->
     <div class="intro-img"></div>
 
+    <!-- Messages -->
+
+    {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+        <li {% if message.tags %} class="{{message.tags}}" {% endif %}>{{message}} <button class="close-btn">X</button>
+        </li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+
 
     {% block content %}
 
@@ -76,8 +86,8 @@
 
     <footer class="fixed-bottom">
         <p class="">&copy; 2022 SmackThatAssProductions <img class="donkey-icon"
-            src="{% static 'images/icon-donkey.png' %}"></p>
-        
+                src="{% static 'images/icon-donkey.png' %}"></p>
+
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
