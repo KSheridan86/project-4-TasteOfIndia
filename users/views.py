@@ -21,6 +21,9 @@ def user_profile(request, pk):
 
 
 def sign_in(request):
+    if request.user.is_authenticated:
+        return redirect('recipes')
+
     if request.method == 'POST':
         username = request.POST['username']
         password = request.POST['password']
