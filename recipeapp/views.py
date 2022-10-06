@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.contrib.auth.decorators import login_required
 from .models import Recipe
 from .forms import RecipeForm
 
@@ -19,6 +20,7 @@ def recipe(request, pk):
     return render(request, 'recipeapp/recipe.html', context)
 
 
+@login_required(login_url='sign_in')
 def create_recipe(request):
     profile = request.user.profile
     form = RecipeForm()
@@ -36,6 +38,7 @@ def create_recipe(request):
     return render(request, 'recipeapp/recipe_form.html', context)
 
 
+@login_required(login_url='sign_in')
 def update_recipe(request, pk):
     profile = request.user.profile
     recipe = profile.recipe_set.get(id=pk)
@@ -52,6 +55,7 @@ def update_recipe(request, pk):
     return render(request, 'recipeapp/recipe_form.html', context)
 
 
+@login_required(login_url='sign_in')
 def delete_recipe(request, pk):
     profile = request.user.profile
     recipe = profile.recipe_set.get(id=pk)
