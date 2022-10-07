@@ -45,7 +45,7 @@
                     <hr>
                     {% if request.user.is_authenticated %}
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="">Profile</a>
+                        <a class="nav-link" aria-current="page" href="{% url 'user_profile' request.user.profile.id %}">Profile</a>
                     </li>
                     <hr>
                     <li class="nav-item">

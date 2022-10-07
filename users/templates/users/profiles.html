@@ -22,7 +22,13 @@
                 <div class="col-12 p-auto m-auto">
                     <div class="pic-frame m-auto">
                         <a href="{% url 'user_profile' profile.id %}">
-                            <img class="chef-profile border border-dark border-2 rounded-4" src="{{profile.profile_image.url}}" alt="Card image cap">
+                            {% if 'placeholder' in profile.profile_image.url %}
+                            <img class="chef-profile border border-dark border-2 rounded-4"
+                                src="{% static 'images/user-default.png' %}" alt="Card image cap">
+                            {% else %}
+                            <img class="chef-profile border border-dark border-2 rounded-4"
+                                src="{{profile.profile_image.url}}" alt="Card image cap">
+                            {% endif %}
                         </a>
                     </div>
 
@@ -39,19 +45,24 @@
                         <hr>
                         <div class="card-body">
                             {% if profile.social_github %}
-                            <a href="{{profile.social_github}}" target="_blank" class="social"><i class="fa-brands fa-square-github"></i></a>
+                            <a href="{{profile.social_github}}" target="_blank" class="social"><i
+                                    class="fa-brands fa-square-github"></i></a>
                             {% endif %}
                             {% if profile.social_linkedin %}
-                            <a href="{{profile.social_linkedin}}" target="_blank" class="social"><i class="fa-brands fa-linkedin"></i></a>
+                            <a href="{{profile.social_linkedin}}" target="_blank" class="social"><i
+                                    class="fa-brands fa-linkedin"></i></a>
                             {% endif %}
                             {% if profile.social_youtube %}
-                            <a href="{{profile.social_youtube}}" target="_blank" class="social"><i class="fa-brands fa-square-youtube"></i></a>
+                            <a href="{{profile.social_youtube}}" target="_blank" class="social"><i
+                                    class="fa-brands fa-square-youtube"></i></a>
                             {% endif %}
                             {% if profile.social_twitter %}
-                            <a href="{{profile.social_twitter}}" target="_blank" class="social"><i class="fa-brands fa-square-youtube"></i></a>
+                            <a href="{{profile.social_twitter}}" target="_blank" class="social"><i
+                                    class="fa-brands fa-square-youtube"></i></a>
                             {% endif %}
                             {% if profile.social_website %}
-                            <a href="{{profile.social_website}}" target="_blank" class="social"><i class="fa-brands fa-square-youtube"></i></a>
+                            <a href="{{profile.social_website}}" target="_blank" class="social"><i
+                                    class="fa-brands fa-square-youtube"></i></a>
                             {% endif %}
                         </div>
                     </div>

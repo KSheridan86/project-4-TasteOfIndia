@@ -10,21 +10,26 @@
             class="card card-account border border-dark border-2 rounded-4 col-12 col-md-10 col-lg-4 col-xl-4 justify-content-center justify-content-md-start ">
             <div class="row p-2">
                 <div class=" m-auto p-auto mt-3 mt-lg-4 col-md-6 col-lg-5 col-xl-6">
+                    {% if 'placeholder' in profile.profile_image.url %}
+                    <img class="chef-profile border border-dark border-2 rounded-4"
+                    src="{% static 'images/user-default.png' %}" alt="Card image cap">
+                    {% else %}
                     <img class="chef-profile border border-dark border-2 rounded-4 offset-lg-0"
                         src="{{profile.profile_image.url}}" alt="Card image cap">
-
+                    {% endif %}
                     <div class="card-body">
                         <!-- Title -->
                         <h5 class="recipe-title">{{profile.name}}</h5>
-
+                        
+                        {% if profile.id == request.user.profile.id %}
                         <a href="">
                             <button id="msg-btn" class="btn">Edit Profile</button>
                         </a>
-
+                        {% else %}
                         <a href="">
                             <button id="msg-btn" class="btn">Send Message</button>
                         </a>
-
+                        {% endif %}
 
                     </div>
                     <div class="card-body">
@@ -82,14 +87,13 @@
             </div>
         </div>
 
-
+        {% if profile.id == request.user.profile.id %}
         <div id="profile-details"
             class="card border border-dark border-2 rounded-4 col-12 col-md-10 col-lg-7 col-xl-6 p-4 m-0 m-xl-3 mt-3 mb-5 mb-xl-5">
             <h5 class="card-title">My Recipes:</h5>
             <hr>
             {% for recipe in profile.recipe_set.all %}
             <ul>
-
                 <li class="recipe-li">
                     <span class="recipe-li-title">{{recipe.title}}</span>
                 </li>
@@ -120,9 +124,8 @@
             <a href="">
                 <button class="recipe-li-btn border border-dark border-2 rounded-4 m-auto">Add Recipe</button>
             </a>
-
-
         </div>
+        {% else %}
 
         <div id="profile-details"
             class="card border border-dark border-2 rounded-4 col-12 col-md-10 col-lg-7 col-xl-6 p-4 m-0 m-xl-3 mt-3 mb-5">
@@ -158,6 +161,7 @@
             <hr>
 
         </div>
+        {% endif %}
 
 
     </div>
