@@ -22,7 +22,7 @@
                         <h5 class="recipe-title">{{profile.name}}</h5>
                         
                         {% if profile.id == request.user.profile.id %}
-                        <a href="">
+                        <a href="{% url 'edit_account' %}">
                             <button id="msg-btn" class="btn">Edit Profile</button>
                         </a>
                         {% else %}
@@ -107,12 +107,12 @@
                     </span>
                     <span>
 
-                        <a href="">
-                            <button class="recipe-li-btn border border-dark border-2 rounded-4">Delete</button>
+                        <a href="{% url 'update_recipe' recipe.id %}">
+                            <button class="recipe-li-btn border border-dark border-2 rounded-4">Edit</button>
                         </a>
 
-                        <a href="">
-                            <button class="recipe-li-btn border border-dark border-2 rounded-4">Edit</button>
+                        <a href="{% url 'delete_recipe' recipe.id %}">
+                            <button class="recipe-li-btn border border-dark border-2 rounded-4">Delete</button>
                         </a>
 
                     </span>
@@ -121,7 +121,7 @@
             </ul>
             {% endfor %}
 
-            <a href="">
+            <a href="{% url 'create_recipe' %}">
                 <button class="recipe-li-btn border border-dark border-2 rounded-4 m-auto">Add Recipe</button>
             </a>
         </div>
