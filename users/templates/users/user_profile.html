@@ -25,6 +25,9 @@
                         <a href="{% url 'edit_account' %}">
                             <button id="msg-btn" class="btn">Edit Profile</button>
                         </a>
+                        <a href="{% url 'delete_account' %}">
+                            <button id="msg-btn" class="btn">Delete Profile</button>
+                        </a>
                         {% else %}
                         <a href="">
                             <button id="msg-btn" class="btn">Send Message</button>
@@ -143,31 +146,20 @@
                 </a>
                 <p>by:</p>
                 <a href="" class="author">{{recipe.owner.name}}</a>
-
                 <hr>
+
                 <div>
                     {% for tag in recipe.tags.all %}
                     <span class="badge">{{tag}}</span>
                     {% endfor %}
-
                 </div>
                 <hr>
-
-                <p class="bio">{{recipe.description}}
-                </p>
-
+                <p class="bio">{{recipe.description}}</p>
             </div>
             {% endfor %}
             <hr>
-
         </div>
         {% endif %}
-
-        <a href="{% url 'delete_account' %}" class="mb-5">
-            <button class="recipe-li-btn border border-dark border-2 rounded-4 m-auto">Delete Account</button>
-        </a>
-
-
     </div>
 
 </main>

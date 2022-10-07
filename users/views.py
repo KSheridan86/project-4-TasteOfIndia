@@ -2,9 +2,11 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import login, logout, authenticate
 from django.contrib import messages
 from django.contrib.auth.models import User
+from django.db.models import Q
 from django.contrib.auth.decorators import login_required
 from .models import Profile
 from .forms import RegisterForm, ProfileForm
+from .utils import search_profiles
 
 
 def sign_in(request):
@@ -61,22 +63,6 @@ def register(request):
     return render(request, 'users/sign_in.html', context)
 
 
-def profiles(request):
-    profiles = Profile.objects.all()
-    context = {
-        'profiles': profiles
-    }
-    return render(request, 'users/profiles.html', context)
-
-
-def user_profile(request, pk):
-    profile = Profile.objects.get(id=pk)
-    context = {
-        'profile': profile
-    }
-    return render(request, 'users/user_profile.html', context)
-
-
 @login_required(login_url='sign_in')
 def edit_account(request):
     profile = request.user.profile
@@ -102,17 +88,21 @@ def delete_account(request):
     return render(request, 'users/delete_user.html')
 
 
-@login_required(login_url='sign_in')
-def delete_recipe(request, pk):
-    profile = request.user.profile
-    recipe = profile.recipe_set.get(id=pk)
-    if request.method == 'POST':
-        recipe.delete()
-        return redirect('recipes')
+def user_profile(request, pk):
+    profile = Profile.objects.get(id=pk)
     context = {
-        'object': recipe
+        'profile': profile
     }
-    return render(request, 'recipeapp/delete_object.html', context)
+    return render(request, 'users/user_profile.html', context)
+
+
+def profiles(request):
+    profiles, search_query = search_profiles(request)
+    context = {
+        'profiles': profiles,
+        'search_query': search_query
+    }
+    return render(request, 'users/profiles.html', context)
 
 
 def landingpage(request):

@@ -1,13 +1,16 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
+from django.db.models import Q
 from .models import Recipe
 from .forms import RecipeForm
+from .utils import search_recipes
 
 
 def recipes(request):
-    recipes = Recipe.objects.all()
+    recipes, search_query = search_recipes(request)
     context = {
-        'recipes': recipes
+        'recipes': recipes,
+        'search_query': search_query
     }
     return render(request, 'recipeapp/recipes.html', context)
 
