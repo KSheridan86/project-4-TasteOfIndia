@@ -91,3 +91,29 @@ def edit_account(request):
         'form': form
     }
     return render(request, 'users/profile_form.html', context)
+
+
+@login_required(login_url='sign_in')
+def delete_account(request):
+    profile = request.user.profile
+    if request.method == 'POST':
+        profile.delete()
+        return redirect('landingpage')
+    return render(request, 'users/delete_user.html')
+
+
+@login_required(login_url='sign_in')
+def delete_recipe(request, pk):
+    profile = request.user.profile
+    recipe = profile.recipe_set.get(id=pk)
+    if request.method == 'POST':
+        recipe.delete()
+        return redirect('recipes')
+    context = {
+        'object': recipe
+    }
+    return render(request, 'recipeapp/delete_object.html', context)
+
+
+def landingpage(request):
+    return render(request, 'landingpage.html')
