@@ -43,6 +43,8 @@ def sign_out(request):
 
 
 def register(request):
+    if request.user.is_authenticated:
+        return redirect('user_profile', pk=request.user.profile.id)
     page = 'register'
     form = RegisterForm()
     if request.method == 'POST':

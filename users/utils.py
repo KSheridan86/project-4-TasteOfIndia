@@ -34,6 +34,7 @@ def search_profiles(request):
         print(search_query)
     profiles = Profile.objects.filter(
         Q(name__icontains=search_query) |
-        Q(quote__icontains=search_query)
+        Q(quote__icontains=search_query) |
+        Q(username__icontains=search_query)
         )
     return profiles, search_query

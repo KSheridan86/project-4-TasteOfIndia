@@ -21,11 +21,10 @@ class Profile(models.Model):
     social_twitter = models.CharField(max_length=200, blank=True, null=True)
     social_linkedin = models.CharField(max_length=200, blank=True, null=True)
     social_youtube = models.CharField(max_length=200, blank=True, null=True)
-    social_website = models.CharField(max_length=200, blank=True, null=True)
+    social_facebook = models.CharField(max_length=200, blank=True, null=True)
     short_intro = models.CharField(max_length=400, blank=True, null=True)
     quote = models.CharField(max_length=400, blank=True, null=True)
     bio = models.TextField(blank=True, null=True)
-    fav_food = models.CharField(max_length=80, blank=True, null=True)
     created_on = models.DateTimeField(auto_now_add=True)
 
     class Meta:

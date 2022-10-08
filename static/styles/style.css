@@ -1,6 +1,8 @@
 #bio-img {
-    height: 8rem;
-    width: 8rem;
+    height: 3rem;
+    width: 3rem;
+    margin-top: 0rem;
+    margin-bottom: 1rem;
 }
 
 body {
@@ -718,7 +720,7 @@ textarea {
         box-shadow: 2px 3px 12px 1px black;
     }
     .card {
-        height: 80%;
+        height: 90%;
     }
 
     .bio {

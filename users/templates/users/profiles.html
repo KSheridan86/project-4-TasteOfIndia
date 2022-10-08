@@ -39,9 +39,9 @@
                             <p class="card-title">{{profile.name}}</p>
                         </a>
                         <hr>
-                        <p>Quote:</p>
-                        <hr>
-                        <p class="card-text">{{profile.quote|slice:'150'}}</p>
+                        <!-- <p>About:</p>
+                        <hr> -->
+                        <p class="card-text">{{profile.short_intro|slice:'160'}}.......</p>
                         <hr>
                         <div class="card-body">
                             {% if profile.social_github %}
@@ -60,8 +60,8 @@
                             <a href="{{profile.social_twitter}}" target="_blank" class="social"><i
                                     class="fa-brands fa-square-twitter"></i></a>
                             {% endif %}
-                            {% if profile.social_website %}
-                            <a href="{{profile.social_website}}" target="_blank" class="social"><i
+                            {% if profile.social_facebook %}
+                            <a href="{{profile.social_facebook}}" target="_blank" class="social"><i
                                     class="fa-brands fa-square-facebook"></i></a>
                             {% endif %}
                         </div>

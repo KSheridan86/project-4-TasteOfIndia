@@ -25,9 +25,6 @@
                         <a href="{% url 'edit_account' %}">
                             <button id="msg-btn" class="btn">Edit Profile</button>
                         </a>
-                        <a href="{% url 'delete_account' %}">
-                            <button id="msg-btn" class="btn">Delete Profile</button>
-                        </a>
                         {% else %}
                         <a href="">
                             <button id="msg-btn" class="btn">Send Message</button>
@@ -52,8 +49,8 @@
                         <a href="{{profile.social_twitter}}" target="_blank" class="social"><i
                                 class="fa-brands fa-square-twitter"></i></a>
                         {% endif %}
-                        {% if profile.social_website %}
-                        <a href="{{profile.social_website}}" target="_blank" class="social"><i
+                        {% if profile.social_facebook %}
+                        <a href="{{profile.social_facebook}}" target="_blank" class="social"><i
                                 class="fa-brands fa-square-facebook"></i></a>
                         {% endif %}
 
@@ -62,7 +59,7 @@
                 <!-- This div below is where to place a quote etc to show beside picture -->
 
                 <div class="col-md-6 p-md-3 col-lg-7 col-xl-6">
-                    <p class="bio">{{profile.bio}}</p>
+                    <p class="bio">{{profile.short_intro}}</p>
                     <img id="bio-img" src="{% static 'images/knife-fork.png' %}">
                 </div>
 
@@ -87,7 +84,7 @@
                 <hr>
                 <h5 class="card-title">Bio:</h5>
                 <hr>
-                <p class="bio">{{profile.short_intro}}</p>
+                <p class="bio">{{profile.bio}}</p>
             </div>
         </div>
 
@@ -126,7 +123,10 @@
             {% endfor %}
 
             <a href="{% url 'create_recipe' %}">
-                <button class="recipe-li-btn border border-dark border-2 rounded-4 m-auto">Add Recipe</button>
+                <button id="msg-btn" class="btn">Add Recipe</button>
+            </a>
+            <a href="{% url 'delete_account' %}">
+                <button id="msg-btn" class="btn">Delete Profile</button>
             </a>
         </div>
         {% else %}
