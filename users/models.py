@@ -32,7 +32,7 @@ class Profile(models.Model):
         """
         Docstrings R us!!
         """
-        ordering = ['username']
+        ordering = ['-created_on']
 
     def __str__(self):
         return str(self.username)

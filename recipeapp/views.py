@@ -3,14 +3,16 @@ from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from .models import Recipe
 from .forms import RecipeForm
-from .utils import search_recipes
+from .utils import search_recipes, recipe_pagination
 
 
 def recipes(request):
     recipes, search_query = search_recipes(request)
+    custom_range, recipes = recipe_pagination(request, recipes, 6)
     context = {
         'recipes': recipes,
-        'search_query': search_query
+        'search_query': search_query,
+        'custom_range': custom_range
     }
     return render(request, 'recipeapp/recipes.html', context)
 
