@@ -1,3 +1,8 @@
+#bio-img {
+    height: 8rem;
+    width: 8rem;
+}
+
 body {
     background-color: #e1a052;
 }
@@ -611,7 +616,7 @@ textarea {
     }
 
     .card {
-        height: 95%;
+        height: 60%;
         background-color: #f1c993;
         box-shadow: 5px 5px 10px 1px;
     }
@@ -711,6 +716,9 @@ textarea {
         /* height: 50%; */
         width: 100%;
         box-shadow: 2px 3px 12px 1px black;
+    }
+    .card {
+        height: 80%;
     }
 
     .bio {

@@ -50,11 +50,11 @@
                         {% endif %}
                         {% if profile.social_twitter %}
                         <a href="{{profile.social_twitter}}" target="_blank" class="social"><i
-                                class="fa-brands fa-square-youtube"></i></a>
+                                class="fa-brands fa-square-twitter"></i></a>
                         {% endif %}
                         {% if profile.social_website %}
                         <a href="{{profile.social_website}}" target="_blank" class="social"><i
-                                class="fa-brands fa-square-youtube"></i></a>
+                                class="fa-brands fa-square-facebook"></i></a>
                         {% endif %}
 
                     </div>
@@ -62,7 +62,8 @@
                 <!-- This div below is where to place a quote etc to show beside picture -->
 
                 <div class="col-md-6 p-md-3 col-lg-7 col-xl-6">
-                    <p class="bio">{{profile.short_intro}}</p>
+                    <p class="bio">{{profile.bio}}</p>
+                    <img id="bio-img" src="{% static 'images/knife-fork.png' %}">
                 </div>
 
             </div>
@@ -86,7 +87,7 @@
                 <hr>
                 <h5 class="card-title">Bio:</h5>
                 <hr>
-                <p class="bio">{{profile.bio}}</p>
+                <p class="bio">{{profile.short_intro}}</p>
             </div>
         </div>
 
