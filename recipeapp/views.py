@@ -1,8 +1,9 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
+from django.contrib import messages
 from .models import Recipe
-from .forms import RecipeForm
+from .forms import RecipeForm, CommentForm
 from .utils import search_recipes, recipe_pagination
 
 
@@ -19,8 +20,19 @@ def recipes(request):
 
 def recipe(request, pk):
     recipe = Recipe.objects.get(id=pk)
+    form = CommentForm()
+    if request.method == 'POST':
+        form = CommentForm(request.POST)
+        comment = form.save(commit=False)
+        comment.recipe = recipe
+        comment.owner = request.user.profile
+        comment.save()
+        messages.success(request, 'Comment Saved!')
+        return redirect('recipe', pk=recipe.id)
+
     context = {
-        'recipe': recipe
+        'recipe': recipe,
+        'form': form
     }
     return render(request, 'recipeapp/recipe.html', context)
 

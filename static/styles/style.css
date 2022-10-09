@@ -267,7 +267,7 @@ footer>p {
 /* recipes page styles */
 .recipe-title {
     text-align: center;
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     font-weight: bold;
 }
 
@@ -370,7 +370,7 @@ textarea {
 .comment-img {
     display: inline-block;
     height: 3rem;
-    margin-bottom: .5rem;
+    margin-bottom: 1.5rem;
 }
 
 #recipe-page {
@@ -625,7 +625,7 @@ textarea {
 
     .card-img-top {
         /* height: 30%; */
-        width: 100%;
+        width: 55%;
         box-shadow: 2px 3px 12px 1px black;
     }
 
@@ -633,8 +633,11 @@ textarea {
         font-size: .9rem;
     }
 
-    .recipe-title {
+    /* .recipe-title {
         font-size: .9rem;
+    } */
+    #recipe-card-main {
+        height: 80vh;
     }
 
     .btn {
@@ -694,6 +697,9 @@ textarea {
 
     #single-recipe {
         position: fixed;
+    }
+    #ingredient-card {
+        margin-top: 6rem;
     }
 }
 
