@@ -18,7 +18,7 @@
             <p>by:</p>
 
             <!-- Author -->
-            <a href="" class="author-signature">{{recipe.owner.name}}</a>
+            <a href="{% url 'user_profile' recipe.owner.id %}" class="author-signature">{{recipe.owner.name}}</a>
             <hr>
             <!-- Tags -->
             <div>

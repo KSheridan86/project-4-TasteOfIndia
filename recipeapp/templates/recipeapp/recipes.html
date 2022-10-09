@@ -19,7 +19,7 @@
     </a>
     {% endif %}
 
-    <section class="row justify-content-center">
+    <section class="row justify-content-around">
         {% for recipe in recipes %}
         <div
             class="card border border-dark border-2 rounded-4 mt-1 col-12 col-md-5 col-lg-3 col-xl-3 g-5 mx-2 ms-xl-3 mb-5">
@@ -28,13 +28,13 @@
                     src="{{recipe.featured_image.url}}" alt="Card image cap">
             </a>
 
-            <a class="author recipe-title" href="">
+            <a class="author recipe-title" href="{% url 'recipe' recipe.id %}">
                 <p>{{recipe.title}}</p>
             </a>
             <p>by:</p>
 
             <!-- Author -->
-            <a href="" class="author">{{recipe.owner.name}}</a>
+            <a href="{% url 'user_profile' recipe.owner.id %}" class="author">{{recipe.owner.name}}</a>
             <hr>
             <!-- Tags -->
             <div>

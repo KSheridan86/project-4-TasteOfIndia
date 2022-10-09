@@ -14,10 +14,10 @@
 <!-- Chef cards -->
 <main class="container text-center g-5">
 
-    <section class="row justify-content-center">
+    <section class="row justify-content-around">
         {% for profile in profiles %}
         <div
-            class="card justify-content-center p-2 border border-dark border-2 rounded-4 mb-5 mt-3 mt-md-3 mt-lg-3 col-12 col-md-5 col-lg-3 mx-2">
+            class="card justify-content-center p-2 border border-dark border-2 rounded-4 mb-5 mt-3 mt-md-3 mt-lg-5 col-12 col-md-5 col-lg-3 mx-2">
             <div class="row p-2">
                 <div class="col-12 p-auto m-auto">
                     <div class="pic-frame m-auto">
@@ -43,6 +43,8 @@
                         <hr> -->
                         <p class="card-text">{{profile.short_intro|slice:'160'}}.......</p>
                         <hr>
+                        <p>Member Since:</p>
+                        <p>{{profile.created_on}}</p>
                         <div class="card-body">
                             {% if profile.social_github %}
                             <a href="{{profile.social_github}}" target="_blank" class="social"><i

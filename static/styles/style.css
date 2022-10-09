@@ -630,7 +630,7 @@ textarea {
     }
 
     .bio {
-        font-size: .8rem;
+        font-size: .9rem;
     }
 
     .recipe-title {
@@ -724,7 +724,11 @@ textarea {
     }
 
     .bio {
-        font-size: .9rem;
+        font-size: 1.1rem;
+    }
+    #bio-img {
+        height: 7rem;
+        width: 7rem;
     }
 
     .form-control {

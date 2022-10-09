@@ -100,7 +100,7 @@ def user_profile(request, pk):
 
 def profiles(request):
     profiles, search_query = search_profiles(request)
-    custom_range, profiles = profile_pagination(request, profiles, 6)
+    custom_range, profiles = profile_pagination(request, profiles, 3)
 
     context = {
         'profiles': profiles,
