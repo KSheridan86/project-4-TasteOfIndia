@@ -15,7 +15,7 @@ def sign_in(request):
         return redirect('user_profile', pk=request.user.profile.id)
 
     if request.method == 'POST':
-        username = request.POST['username']
+        username = request.POST['username'].lower()
         password = request.POST['password']
 
         try:
