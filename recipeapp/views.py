@@ -9,7 +9,7 @@ from .utils import search_recipes, recipe_pagination
 
 def recipes(request):
     recipes, search_query = search_recipes(request)
-    custom_range, recipes = recipe_pagination(request, recipes, 3)
+    custom_range, recipes = recipe_pagination(request, recipes, 6)
     context = {
         'recipes': recipes,
         'search_query': search_query,

@@ -267,7 +267,7 @@ footer>p {
 /* recipes page styles */
 .recipe-title {
     text-align: center;
-    font-size: 1.25rem;
+    font-size: 1.5rem;
     font-weight: bold;
 }
 
@@ -615,6 +615,7 @@ textarea {
     }
     .recipe-title {
         margin-bottom: -1.25rem;
+        font-size: 1.25rem;
     }
     .author-signature {
         margin-bottom: -1rem;
@@ -662,15 +663,13 @@ textarea {
         font-size: .9rem;
     }
 
-    /* .recipe-title {
-        font-size: .9rem;
-    } */
     #recipe-card-main {
         height: 80vh;
         margin-top: 0rem;
     }
     .recipe-title {
         margin-bottom: -1.25rem;
+        font-size: 1.25rem;
     }
     .author-signature {
         margin-bottom: -1rem;
@@ -831,6 +830,7 @@ textarea {
     }
     .recipe-title {
         margin-bottom: -1.25rem;
+        font-size: 1.25rem;
     }
     .author-signature {
         margin-bottom: -1rem;
