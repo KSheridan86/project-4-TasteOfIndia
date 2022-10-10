@@ -4,7 +4,7 @@ from django.contrib import messages
 from django.contrib.auth.models import User
 from django.db.models import Q
 from django.contrib.auth.decorators import login_required
-from .models import Profile
+from .models import Profile, Message
 from .forms import RegisterForm, ProfileForm
 from .utils import search_profiles, profile_pagination
 
@@ -112,3 +112,15 @@ def profiles(request):
 
 def landingpage(request):
     return render(request, 'landingpage.html')
+
+
+@login_required(login_url='sign_up')
+def inbox(request):
+    profile = request.user.profile
+    messageRequests = profile.messages.all()
+    unreadCount = messageRequests.filter(is_read=False).count()
+    context = {
+        'messageRequests': messageRequests,
+        'unreadCount': unreadCount
+    }
+    return render(request, 'users/inbox.html', context)

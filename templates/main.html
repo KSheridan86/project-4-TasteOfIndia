@@ -23,11 +23,14 @@
     <!-- Navbar -->
     <nav class="navbar fixed-top">
         <div class="container-fluid">
-            <a href="">
+            {% if request.user.is_authenticated %}
+            <a href="{% url 'inbox' %}">
                 <i class="fa-solid fa-envelope nav-message"></i>
             </a>
+            {% endif %}
             <a class="navbar-brand" href="{% url 'landingpage' %}">Taste of India <img class="india-icon"
-                    src="{% static 'images/india-icon.png' %}"></a>
+                    src="{% static 'images/india-icon.png' %}">
+            </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -49,7 +52,7 @@
                     </li>
                     <hr>
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="">Inbox</a>
+                        <a class="nav-link" aria-current="page" href="{% url 'inbox' %}">Inbox</a>
                     </li>
                     <hr>
                     <li class="nav-item">
