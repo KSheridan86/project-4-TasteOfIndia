@@ -99,15 +99,13 @@
                     <span class="recipe-li-title">{{recipe.title}}</span>
                 </li>
                 <li class="li">
-                    <span>
-
+                    <div style="display: inline-block">
                         <a href="{% url 'recipe' recipe.id %}">
                             <img class="thumbnail-img border border-dark border-2 rounded-4" src="{{recipe.featured_image.url}}"
                                 alt="Card image cap"></a>
-
-                    </span>
-                    <span>
-
+                    </div>
+            
+                    <div style="display: inline-block" id="right-align">
                         <a href="{% url 'update_recipe' recipe.id %}">
                             <button class="recipe-li-btn border border-dark border-2 rounded-4">Edit</button>
                         </a>
@@ -115,8 +113,7 @@
                         <a href="{% url 'delete_recipe' recipe.id %}">
                             <button class="recipe-li-btn border border-dark border-2 rounded-4">Delete</button>
                         </a>
-
-                    </span>
+                    </div>
                 </li>
 
             </ul>
@@ -159,7 +156,6 @@
                 <hr>
             </div>
             {% endfor %}
-            <hr>
         </div>
         {% endif %}
     </div>

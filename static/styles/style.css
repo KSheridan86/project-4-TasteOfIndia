@@ -412,8 +412,8 @@ textarea {
 }
 
 .pic-frame {
-    height: 12rem;
-    width: 12rem;
+    height: 16rem;
+    width: 16rem;
 }
 
 /* user profile page styles */
@@ -484,6 +484,9 @@ textarea {
     font-size: 1rem;
     font-weight: bold;
 }
+#right-align {
+    margin-left: 5rem;
+}
 
 /* inbox page styles */
 .card-inbox {
@@ -543,6 +546,16 @@ textarea {
         width: 4rem;
     }
 }
+@media (max-width: 375px) {
+    #right-align {
+        margin-left: 2rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .recipe-li-btn {
+        width: 4.5rem;
+    } 
+}
 
 @media (max-width: 1024px) {
     #myprofile {
@@ -558,6 +571,18 @@ textarea {
 @media (max-width: 359px) {
     .navbar-brand {
         font-size: 1.2rem;
+    }
+    .recipe-li-btn {
+        font-size: .9rem;
+        margin-bottom: 0.25rem;
+    }
+    .thumbnail-img {
+        height: 5rem;
+        margin-bottom: 0.5rem;
+        margin-left: 4.5rem;
+    }
+    #right-align {
+        margin-left: 1.5rem;
     }
 }
 
@@ -621,12 +646,24 @@ textarea {
         margin-bottom: -1rem;
     }
     .badge {
-        margin-bottom: 0rem;
+        margin-bottom: 0.1rem;
     }
     .tablet-font {
         font-size: .9rem;
         padding: 0rem;
         margin-top: -.5rem;
+    }
+    #msg-btn {
+        margin-top: 2rem;
+    }
+    .recipe-img {
+        width: 75%;
+    }
+    #right-align {
+        margin-left: 15rem;
+    }
+    .thumbnail-img {
+        height: 4.3rem;
     }
 }
 
@@ -675,7 +712,7 @@ textarea {
         margin-bottom: -1rem;
     }
     .badge {
-        margin-bottom: 0rem;
+        margin-bottom: 0.2rem;
     }
     /* .tablet-font {
         font-size: .9rem;
@@ -691,6 +728,7 @@ textarea {
     #msg-btn {
         height: 2.5rem;
         margin-left: -.3rem;
+        margin-top: 2rem;
     }
 
     .social {
@@ -720,9 +758,9 @@ textarea {
     }
 
     .recipe-img {
-        height: 70%;
+        height: 90%;
         width: 70%;
-        margin-left: 3.5rem;
+        /* margin-left: 3.5rem; */
     }
 
     .recipepage-text {
@@ -744,6 +782,26 @@ textarea {
     }
     #ingredient-card {
         margin-top: 6rem;
+    }
+    .pic-frame {
+        height: 12rem;
+        width: 12rem;
+    }
+    /* #msg-btn {
+        margin-top: 2rem;
+    } */
+    #right-align {
+        margin-left: 12rem;
+    }
+    .thumbnail-img {
+        height: 5rem;
+    }
+    .recipe-li-title {
+        font-size: 1.2rem;
+    }
+    .recipe-li-btn {
+        font-size: 1.2rem;
+        line-height: 1.8rem;
     }
 }
 
@@ -848,5 +906,14 @@ textarea {
     }
     #ingredient-card {
         margin-top: 5rem;
+    }
+    #msg-btn {
+        margin-top: 2rem;
+    }
+    main {
+        margin-bottom: 3rem;
+    }
+    #right-align {
+        margin-left: 18rem;
     }
 }
