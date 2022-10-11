@@ -18,13 +18,14 @@
                         {% else %}
                         <li class="li-read"></li>
                         {% endif %}
-                        <a class="inbox-msg" href="">
+                        <a class="inbox-msg" href="{% url 'view_message' message.id %}">
                             <span>{{message.sender}} | <small>{{message.created}}</small></span>
                             <br>
                             <span>{{message.subject}}</span>
                             <br>
-                            <a href=""><button
-                                    class="col-3 mb-2 inbox-btn border border-dark border-2 rounded-4 offset-9">Delete</button></a>
+                            <a href="">
+                                <button class="col-3 mb-2 inbox-btn border border-dark border-2 rounded-4 offset-9">Delete</button>
+                            </a>
                         </a>
                         </li>
                         {% endfor %}

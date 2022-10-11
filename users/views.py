@@ -124,3 +124,16 @@ def inbox(request):
         'unreadCount': unreadCount
     }
     return render(request, 'users/inbox.html', context)
+
+
+@login_required(login_url='sign_up')
+def view_message(request, pk):
+    profile = request.user.profile
+    message = profile.messages.get(id=pk)
+    if message.is_read is False:
+        message.is_read = True
+        message.save()
+    context = {
+        'message': message
+    }
+    return render(request, 'users/message.html', context)
