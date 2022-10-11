@@ -167,3 +167,21 @@ def create_message(request, pk):
         'form': form
     }
     return render(request, 'users/message_form.html', context)
+
+
+@login_required(login_url='login')
+def delete_message(request, pk):
+    """
+    Docstrings R us!!
+    """
+    page = 'delete'
+    profile = request.user.profile
+    message = profile.messages.get(id=pk)
+    if request.method == 'POST':
+        message.delete()
+        return redirect('inbox')
+    context = {
+        'object': message.name,
+        'page': page
+        }
+    return render(request, 'recipeapp/delete_object.html', context)
