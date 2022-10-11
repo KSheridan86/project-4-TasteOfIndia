@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 from django.db.models import Q
 from django.contrib.auth.decorators import login_required
 from .models import Profile, Message
-from .forms import RegisterForm, ProfileForm
+from .forms import RegisterForm, ProfileForm, MessageForm
 from .utils import search_profiles, profile_pagination
 
 
@@ -137,3 +137,33 @@ def view_message(request, pk):
         'message': message
     }
     return render(request, 'users/message.html', context)
+
+
+def create_message(request, pk):
+    recipient = Profile.objects.get(id=pk)
+    form = MessageForm()
+
+    try:
+        sender = request.user.profile
+    except Exception:
+        sender = None
+
+    if request.method == 'POST':
+        form = MessageForm(request.POST)
+        if form.is_valid():
+            message = form.save(commit=False)
+            message.sender = sender
+            message.recipient = recipient
+
+            if sender:
+                message.name = sender.name
+                message.email = sender.email
+            message.save()
+
+            messages.success(request, 'Message sent!')
+            return redirect('user_profile', pk=recipient.id)
+    context = {
+        'recipient': recipient,
+        'form': form
+    }
+    return render(request, 'users/message_form.html', context)

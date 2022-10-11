@@ -26,7 +26,7 @@
                             <button id="msg-btn" class="btn">Edit Profile</button>
                         </a>
                         {% else %}
-                        <a href="">
+                        <a href="{% url 'create_message' profile.id %}">
                             <button id="msg-btn" class="btn">Send Message</button>
                         </a>
                         {% endif %}

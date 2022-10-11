@@ -4,7 +4,7 @@
 
 <main class="container mt-0 mb-5">
     <div id="loginbox" class="row justify-content-center g-0">
-        <a href=""><button class="btn back-btn">Back</button></a>
+        <a href="{% url 'user_profile' recipient.id %}"><button class="btn back-btn">Back</button></a>
         <div
             class="col-12 col-md-6 col-lg-5 col-xl-4 p-2 card-welcome border border-dark border-2 rounded-4 justify-content-center">
 
@@ -12,26 +12,28 @@
                 <h4>Write Message:</h4>
                 {% csrf_token %}
 
+                {% if request.user.is_authenticated == False %}
                 <div class="mb-3">
-                    <label for="" class="form-label"></label>
+                    <label for="" class="form-label">{{form.name.label}}</label>
                     <br>
-
+                    {{form.name}}
                 </div>
                 <div class="mb-3">
-                    <label for="" class="form-label"></label>
+                    <label for="" class="form-label">{{form.email.label}}</label>
                     <br>
-
+                    {{form.email}}
                 </div>
+                {% endif %}
 
                 <div class="mb-3">
-                    <label for="" class="form-label"></label>
+                    <label for="" class="form-label">{{form.subject.label}}</label>
                     <br>
-
+                    {{form.subject}}
                 </div>
                 <div class="mb-3">
-                    <label for="" class="form-label"></label>
+                    <label for="" class="form-label">{{form.body.label}}</label>
                     <br>
-
+                    {{form.body}}
                 </div>
 
                 <button type="submit" class="btn btn-primary">Send Message</button>
