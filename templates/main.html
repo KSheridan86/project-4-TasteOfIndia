@@ -25,9 +25,7 @@
         <div class="container-fluid">
             {% if request.user.is_authenticated %}
             <a href="{% url 'inbox' %}">
-                <i class="fa-solid fa-envelope nav-message">  <small>
-                    <small>
-                        {{request.user.profile.messages.all.count}}</small></small></i>
+                <i class="fa-solid fa-envelope nav-message"></i>
             </a>
             {% endif %}
             <a class="navbar-brand" href="{% url 'landingpage' %}">Taste of India <img class="india-icon"

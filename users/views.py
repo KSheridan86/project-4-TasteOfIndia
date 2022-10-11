@@ -185,3 +185,35 @@ def delete_message(request, pk):
         'page': page
         }
     return render(request, 'recipeapp/delete_object.html', context)
+
+
+@login_required(login_url='login')
+def reply_message(request, pk):
+    recipient = Profile.objects.get(id=pk)
+    form = MessageForm()
+
+    try:
+        sender = request.user.profile
+    except Exception:
+        sender = None
+
+    if request.method == 'POST':
+        form = MessageForm(request.POST)
+        if form.is_valid():
+            message = form.save(commit=False)
+            message.sender = sender
+            message.recipient = recipient
+
+            if sender:
+                message.name = sender.name
+                message.email = sender.email
+            message.save()
+
+            messages.success(request, 'Message sent!')
+            return redirect('inbox')
+
+    context = {
+        'recipient': recipient,
+        'form': form
+        }
+    return render(request, 'users/message_form.html', context)

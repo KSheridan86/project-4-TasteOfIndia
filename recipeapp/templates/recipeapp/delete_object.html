@@ -13,15 +13,19 @@
                 {% csrf_token %}
                 {% if page == 'delete' %}
                 <p>Are you sure you want to delete this message from "{{object}}"??</p>
+                <button type="submit" class="btn btn-primary">
+                    <a class="login-register" href="{% url 'inbox' %}">
+                        Back
+                    </a>
+                </button>
                 {% else %}
                 <p>Are you sure you want to delete "{{object}}"??</p>
-                {% endif %}
-                
                 <button type="submit" class="btn btn-primary">
                     <a class="login-register" href="{% url 'recipes' %}">
                         Back
                     </a>
                 </button>
+                {% endif %}
                 
                 <button type="submit" class="btn btn-primary">
                     <a class="login-register" type="submit" value="Confirm">Confirm</a>

@@ -19,7 +19,7 @@
                         <li class="li-read"></li>
                         {% endif %}
                         <a class="inbox-msg" href="{% url 'view_message' message.id %}">
-                            <span>{{message.sender}} | <small>{{message.created}}</small></span>
+                            <span>{{message.name}} | <small>{{message.created}}</small></span>
                             <br>
                             <span>{{message.subject}}</span>
                             <br>
