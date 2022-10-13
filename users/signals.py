@@ -29,9 +29,11 @@ def edit_profile(sender, instance, created, **kwargs):
 
 @receiver(post_delete, sender=Profile)
 def delete_profile(sender, instance, **kwargs):
-    user = instance.user
-    user.delete()
-
+    try:
+        user = instance.user
+        user.delete()
+    except Exception:
+        pass
 
 # post_save.connect(create_profile, sender=User)
 # post_delete.connect(delete_profile, sender=Profile)

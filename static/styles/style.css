@@ -835,8 +835,8 @@ textarea {
         font-size: 1.1rem;
     }
     #bio-img {
-        height: 7rem;
-        width: 7rem;
+        height: 5rem;
+        width: 5rem;
     }
 
     .form-control {
@@ -863,9 +863,9 @@ textarea {
     }
 
     .recipe-img {
-        height: 70%;
+        /* height: 70%; */
         width: 70%;
-        margin-left: 3.75rem;
+        margin-bottom: 1rem;
     }
 
     .recipepage-text {
@@ -894,7 +894,7 @@ textarea {
         margin-bottom: -1rem;
     }
     .badge {
-        margin-bottom: 0rem;
+        margin-bottom: .75rem;
     }
     .tablet-font {
         font-size: .9rem;
@@ -915,5 +915,15 @@ textarea {
     }
     #right-align {
         margin-left: 18rem;
+    }
+    .recipe-li-title {
+        font-size: 1.7rem;
+    }
+    .recipe-li-button {
+        line-height: 1.8rem;
+        font-size: 1.2rem;
+    }
+    .thumbnail-img {
+        height: 5rem;
     }
 }

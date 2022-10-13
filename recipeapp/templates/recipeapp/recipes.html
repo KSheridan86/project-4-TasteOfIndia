@@ -13,13 +13,13 @@
 
 <!-- Recipe cards -->
 <main class="container text-center g-5">
-    {% if user.is_authenticated %}
+    <!-- {% if user.is_authenticated %}
     <a href="{% url 'create_recipe' %}">
         <button class="addrecipe-btn border border-dark border-2 rounded-4 mt-3 mb-2">Add Recipe</button>
     </a>
-    {% endif %}
+    {% endif %} -->
 
-    <section class="row justify-content-around">
+    <section class="row justify-content-around mt-4">
         {% for recipe in recipes %}
         <div
             class="card border border-dark border-2 rounded-4 mt-1 col-12 col-md-5 col-lg-3 col-xl-3 g-5 mx-2 ms-xl-3 mb-5">
@@ -49,6 +49,9 @@
             <!-- Info-Excerpt -->
             <p class="card-text">
                 {{recipe.description}}
+                <hr>
+                Date added:<br>
+                {{recipe.created_on}}
             </p>
         </div>
         {% endfor %}

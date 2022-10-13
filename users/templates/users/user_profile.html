@@ -135,23 +135,24 @@
             {% for recipe in profile.recipe_set.all %}
             <div class="card-body row">
 
+                <a class="card-title" href="{% url 'recipe' recipe.id %}">
+                    <h5>{{recipe.title}}</h5>
+                </a>
                 <a href="{% url 'recipe' recipe.id %}">
                     <img class="recipe-img col-12 border border-dark border-2 rounded-4" src="{{recipe.featured_image.url}}" alt="Card image cap">
                 </a>
 
-                <a class="card-title" href="{% url 'recipe' recipe.id %}">
-                    <h5>{{recipe.title}}</h5>
-                </a>
-                <p>by:</p>
+                
+                <!-- <p>by:</p>
                 <a href="" class="author">{{recipe.owner.name}}</a>
-                <hr>
+                <hr> -->
 
                 <div>
                     {% for tag in recipe.tags.all %}
                     <span class="badge">{{tag}}</span>
                     {% endfor %}
                 </div>
-                <hr>
+                <!-- <hr> -->
                 <p class="bio">{{recipe.description}}</p>
                 <hr>
             </div>
