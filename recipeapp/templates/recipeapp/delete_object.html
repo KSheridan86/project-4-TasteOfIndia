@@ -18,6 +18,13 @@
                         Back
                     </a>
                 </button>
+                {% elif page == 'delete-recipe' %}
+                <p>Are you sure you want to delete this recipe: "{{object}}"??</p>
+                <button type="submit" class="btn btn-primary">
+                    <a class="login-register" href="{% url 'user_profile' request.user.profile.id %}">
+                        Back
+                    </a>
+                </button>
                 {% else %}
                 <p>Are you sure you want to delete "{{object}}"??</p>
                 <button type="submit" class="btn btn-primary">

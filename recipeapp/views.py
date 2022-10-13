@@ -95,13 +95,15 @@ def update_recipe(request, pk):
 
 @login_required(login_url='sign_in')
 def delete_recipe(request, pk):
+    page = 'delete-recipe'
     profile = request.user.profile
     recipe = profile.recipe_set.get(id=pk)
     if request.method == 'POST':
         recipe.delete()
-        return redirect('recipes')
+        return redirect('user_profile', pk=profile.id)
     context = {
-        'object': recipe
+        'object': recipe,
+        'page': page
     }
     return render(request, 'recipeapp/delete_object.html', context)
 
