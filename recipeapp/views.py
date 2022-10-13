@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.contrib import messages
-from .models import Recipe
+from .models import Recipe, Tag
 from .forms import RecipeForm, CommentForm
 from .utils import search_recipes, recipe_pagination
 
@@ -43,12 +43,17 @@ def create_recipe(request):
     form = RecipeForm()
 
     if request.method == 'POST':
+        user_tags = request.POST.get('tag_string').replace(
+            ',', ' ').replace('-', ' ').split()
         form = RecipeForm(request.POST, request.FILES)
         if form.is_valid():
             recipe = form.save(commit=False)
             recipe.owner = profile
             recipe.save()
-            return redirect('recipes')
+            for tag in user_tags:
+                tag, created_on = Tag.objects.get_or_create(name=tag)
+                recipe.tags.add(tag)
+            return redirect('user_profile', pk=profile.id)
     context = {
         'form': form
     }
@@ -60,14 +65,30 @@ def update_recipe(request, pk):
     profile = request.user.profile
     recipe = profile.recipe_set.get(id=pk)
     form = RecipeForm(instance=recipe)
+
     if request.method == 'POST':
+        old_tags = recipe.tags.all()
+        print(old_tags)
+        old_tags.delete()
+        refresh = recipe.tags.all()
+        print(refresh)
+
+        user_tags = request.POST.get('tag_string').replace(
+            ',', ' ').replace('-', ' ').split()
+        for i in range(len(user_tags)):
+            user_tags[i] = user_tags[i].capitalize()
+
         form = RecipeForm(request.POST, request.FILES, instance=recipe)
         if form.is_valid():
-            form.save()
-            return redirect('recipes')
+            recipe = form.save()
+            for tag in user_tags:
+                tag, created_on = Tag.objects.get_or_create(name=tag)
+                recipe.tags.add(tag)
+            return redirect('user_profile', pk=profile.id)
 
     context = {
-        'form': form
+        'form': form,
+        'recipe': recipe
     }
     return render(request, 'recipeapp/recipe_form.html', context)
 

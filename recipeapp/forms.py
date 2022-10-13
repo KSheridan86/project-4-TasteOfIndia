@@ -7,11 +7,11 @@ class RecipeForm(ModelForm):
     class Meta:
         model = Recipe
         fields = ['title', 'description',
-                  'ingredients', 'method', 'featured_image', 'tags']
+                  'ingredients', 'method', 'featured_image']
 
-        widgets = {
-            'tags': forms.CheckboxSelectMultiple()
-        }
+        # widgets = {
+        #     'tags': forms.CheckboxSelectMultiple()
+        # }
 
     def __init__(self, *args, **kwargs):
         super(RecipeForm, self).__init__(*args, **kwargs)

@@ -3,33 +3,66 @@
 {% block content %}
 
 <main class="container mt-0 mb-5">
-  
-  <div id="loginbox" class="row justify-content-center g-0">
-    
+
+  <div class="row justify-content-center g-0">
+
     <div
       class="col-12 col-md-6 col-lg-5 col-xl-4 p-2 card-welcome border border-dark border-2 rounded-4 justify-content-center">
-      
+
       <form action="" method="POST" enctype="multipart/form-data">
         <button type="submit" class="btn btn-primary mt-0">
           <a class="login-register" href="{% url 'user_profile' request.user.profile.id %}">
-              Back
+            Back
           </a>
-      </button>
+        </button>
         <h4>Add Recipe</h4>
         {% csrf_token %}
-       
+
         {% for field in form %}
         <div class="mb-3">
-          <label for="" class="form-label">{{field.label}}</label>
+          <label for="recipe inputs" class="form-label">{{field.label}}</label>
           <br>
           {{field}}
         </div>
         {% endfor %}
-       
+        <hr>
+        <h5>Current Tags</h5>
+        <div class="mb-3">
+          {% for tag in recipe.tags.all %}
+          <span class="badge">{{tag}}</span>
+          {% endfor %}
+        </div>
+        <hr>
+
+        <div class="mb-3">
+          <label for="tag input" class="form-label"><b>Enter new tags</b>
+            <br>
+            <small>Please use a space or a comma between each new tag.....</small>
+          </label>
+          <input class="form-control register" placeholder="Enter tags eg...Spicy or Vegetarian etc..."
+            name="tag_string"></input>
+          <div>
+            <p><small>**Warning**</small></p>
+            <p class="tag-warning"><small>New tags will overwrite old tags.</small></p>
+            <p class="tag-warning"><small>Please include <b>ALL</b> relevent tags above.</small></p>
+          </div>
+
+        </div>
+
         <button type="submit" class="btn btn-primary">Save Recipe</button>
       </form>
     </div>
   </div>
 
 </main>
+
+<!-- <script type="text/javascript">
+  let singleTag = document.getElementsByClassName('tag-delete');
+  for(let i = 0; singleTag.length > i; i++ ) {
+    singleTag[i].addEventListener('click', (e) => {
+      let tagId = e.target.dataset.tag
+      let recipeId = e.target.dataset.recipe
+    })
+  }
+</script> -->
 {% endblock %}

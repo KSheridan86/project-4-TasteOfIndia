@@ -324,6 +324,9 @@ footer>p {
 .active-page {
     background-color: #e1a052;
 }
+.tag-warning {
+    line-height: .25rem;
+}
 
 /* single recipe page styles */
 .main-recipe-img {
