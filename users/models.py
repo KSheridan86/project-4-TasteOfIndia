@@ -16,7 +16,7 @@ class Profile(models.Model):
     username = models.CharField(max_length=80, blank=True, null=True)
     email = models.EmailField(max_length=500, blank=True, null=True)
     profile_image = CloudinaryField(
-        'image', default='placeholder', blank=True, null=True)
+        'image', default='placeholder')
     social_github = models.CharField(max_length=200, blank=True, null=True)
     social_twitter = models.CharField(max_length=200, blank=True, null=True)
     social_linkedin = models.CharField(max_length=200, blank=True, null=True)
@@ -31,7 +31,7 @@ class Profile(models.Model):
         """
         Docstrings R us!!
         """
-        ordering = ['-created_on']
+        ordering = ['created_on']
 
     def __str__(self):
         return str(self.username)

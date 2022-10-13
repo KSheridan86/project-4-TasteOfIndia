@@ -10,7 +10,11 @@
       <div class="col-12 col-md-8 col-lg-7 col-xl-5 p-4 mb-5 card-message border border-dark border-2 rounded-4">
         <div class="col-12 card-message">
           <h4>Message from:</h4>
+          {% if message.sender %}
+          <a href="{% url 'user_profile' message.sender.id %}"><span class="msg-txt">{{message.name}}</span></a>
+          {% else %}
           <span class="msg-txt">{{message.name}}</span>
+          {% endif %}
           <hr>
           <h4>Subject:</h4>
           <span class="msg-txt">{{message.subject}}</span>

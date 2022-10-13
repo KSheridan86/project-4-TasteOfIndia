@@ -12,7 +12,7 @@
                 <div class=" m-auto p-auto mt-3 mt-lg-4 col-md-6 col-lg-5 col-xl-6">
                     {% if 'placeholder' in profile.profile_image.url %}
                     <img class="chef-profile border border-dark border-2 rounded-4"
-                    src="{% static 'images/user-default.png' %}" alt="Card image cap">
+                        src="{% static 'images/user-default.png' %}" alt="Card image cap">
                     {% else %}
                     <img class="chef-profile border border-dark border-2 rounded-4 offset-lg-0"
                         src="{{profile.profile_image.url}}" alt="Card image cap">
@@ -20,7 +20,7 @@
                     <div class="card-body">
                         <!-- Title -->
                         <h5 class="recipe-title">{{profile.name}}</h5>
-                        
+
                         {% if profile.id == request.user.profile.id %}
                         <a href="{% url 'edit_account' %}">
                             <button id="msg-btn" class="btn">Edit Profile</button>
@@ -98,13 +98,20 @@
                 <li class="recipe-li">
                     <span class="recipe-li-title">{{recipe.title}}</span>
                 </li>
+                <!-- fix inline styling -->
                 <li class="li">
                     <div style="display: inline-block">
+                        {% if 'placeholder' in recipe.featured_image.url %}
                         <a href="{% url 'recipe' recipe.id %}">
-                            <img class="thumbnail-img border border-dark border-2 rounded-4" src="{{recipe.featured_image.url}}"
-                                alt="Card image cap"></a>
+                            <img class="thumbnail-img border border-dark border-2 rounded-4"
+                                src="{% static 'images/user-default.png' %}" alt="Card image cap"></a>
+                        {% else %}
+                        <a href="{% url 'recipe' recipe.id %}">
+                            <img class="thumbnail-img border border-dark border-2 rounded-4"
+                                src="{{recipe.featured_image.url}}" alt="Card image cap"></a>
+                        {% endif %}
                     </div>
-            
+
                     <div style="display: inline-block" id="right-align">
                         <a href="{% url 'update_recipe' recipe.id %}">
                             <button class="recipe-li-btn border border-dark border-2 rounded-4">Edit</button>
@@ -138,11 +145,19 @@
                 <a class="card-title" href="{% url 'recipe' recipe.id %}">
                     <h5>{{recipe.title}}</h5>
                 </a>
-                <a href="{% url 'recipe' recipe.id %}">
-                    <img class="recipe-img col-12 border border-dark border-2 rounded-4" src="{{recipe.featured_image.url}}" alt="Card image cap">
-                </a>
+                <div style="display: inline-block">
+                    {% if 'placeholder' in recipe.featured_image.url %}
+                    <a href="{% url 'recipe' recipe.id %}">
+                        <img class="thumbnail-img border border-dark border-2 rounded-4"
+                            src="{% static 'images/user-default.png' %}" alt="Card image cap"></a>
+                    {% else %}
+                    <a href="{% url 'recipe' recipe.id %}">
+                        <img class="thumbnail-img border border-dark border-2 rounded-4"
+                            src="{{recipe.featured_image.url}}" alt="Card image cap"></a>
+                    {% endif %}
+                </div>
 
-                
+
                 <!-- <p>by:</p>
                 <a href="" class="author">{{recipe.owner.name}}</a>
                 <hr> -->

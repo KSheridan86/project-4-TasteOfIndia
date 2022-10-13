@@ -7,10 +7,20 @@
     <div id="single-recipe" class="row justify-content-around justify-content-md-start mt-lg-0">
 
         <div id="recipe-card-main" class="card border border-dark border-2 rounded-4 col-11 col-md-5 col-lg-5 col-xl-5 g-5">
-            <a href="{% url 'recipe' recipe.id %}">
-                <img class="card-img-top border border-dark border-2 rounded-4 mt-4 mb-2"
-                    src="{{recipe.featured_image.url}}" alt="Card image cap">
-            </a>
+            
+                {% if 'placeholder' in recipe.featured_image.url %}
+                <a href="{% url 'recipe' recipe.id %}">
+                    <img class="card-img-top border border-dark border-2 rounded-4 mt-4 mb-2"
+                        src="{% static 'images/user-default.png' %}" alt="Card image cap">
+                </a>
+                {% else %}
+                <a href="{% url 'recipe' recipe.id %}">
+                    <img class="card-img-top border border-dark border-2 rounded-4 mt-4 mb-2"
+                        src="{{recipe.featured_image.url}}" alt="Card image cap">
+                </a>
+                {% endif %}
+
+            
             <!-- Title -->
             <a class="author recipe-title" href="{% url 'recipe' recipe.id %}">
                 <p>{{recipe.title}}</p>
