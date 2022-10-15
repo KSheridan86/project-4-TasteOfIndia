@@ -13,70 +13,63 @@
 
 <!-- Chef cards -->
 <main class="container text-center g-5">
-
     <section class="row justify-content-around">
         {% for profile in profiles %}
         <div
-            class="card justify-content-center p-2 border border-dark border-2 rounded-4 mb-5 mt-3 mt-md-3 mt-lg-5 col-12 col-md-5 col-lg-3 mx-2">
-            <div class="row p-2">
-                <div class="col-12 p-auto m-auto">
-                    <div class="pic-frame m-auto">
-                        <a href="{% url 'user_profile' profile.id %}">
-                            {% if 'placeholder' in profile.profile_image.url %}
-                            <img class="chef-profile border border-dark border-2 rounded-4"
-                                src="{% static 'images/user-default.png' %}" alt="Card image cap">
-                            {% else %}
-                            <img class="chef-profile border border-dark border-2 rounded-4"
-                                src="{{profile.profile_image.url}}" alt="Card image cap">
-                            {% endif %}
-                        </a>
-                    </div>
+            class="card justify-content-center p-2 border border-dark border-2 rounded-4 mb-2 mt-3 mt-md-3 mt-lg-5 col-12 col-md-5 col-lg-3 mx-2">
+            <!-- Profile image -->
+            <div class="pic-frame m-auto">
+                <a href="{% url 'user_profile' profile.id %}">
+                    {% if 'placeholder' in profile.profile_image.url %}
+                    <img class="chef-profile border border-dark border-2 rounded-4"
+                        src="{% static 'images/user-default.png' %}" alt="Card image cap">
+                    {% else %}
+                    <img class="chef-profile border border-dark border-2 rounded-4" src="{{profile.profile_image.url}}"
+                        alt="Card image cap">
+                    {% endif %}
+                </a>
+            </div>
 
-
-                    <div class="card-body">
-                        <!-- Title -->
-                        <a class="author recipe-title" href="{% url 'user_profile' profile.id %}">
-                            <p class="card-title">{{profile.name}}</p>
-                        </a>
-                        <hr>
-                        <!-- <p>About:</p>
-                        <hr> -->
-                        <p class="card-text">{{profile.short_intro|slice:'160'}}.......</p>
-                        <hr>
-                        <p>Member Since:</p>
-                        <p>{{profile.created_on}}</p>
-                        <div class="card-body">
-                            {% if profile.social_github %}
-                            <a href="{{profile.social_github}}" target="_blank" class="social"><i
-                                    class="fa-brands fa-square-github"></i></a>
-                            {% endif %}
-                            {% if profile.social_linkedin %}
-                            <a href="{{profile.social_linkedin}}" target="_blank" class="social"><i
-                                    class="fa-brands fa-linkedin"></i></a>
-                            {% endif %}
-                            {% if profile.social_youtube %}
-                            <a href="{{profile.social_youtube}}" target="_blank" class="social"><i
-                                    class="fa-brands fa-square-youtube"></i></a>
-                            {% endif %}
-                            {% if profile.social_twitter %}
-                            <a href="{{profile.social_twitter}}" target="_blank" class="social"><i
-                                    class="fa-brands fa-square-twitter"></i></a>
-                            {% endif %}
-                            {% if profile.social_facebook %}
-                            <a href="{{profile.social_facebook}}" target="_blank" class="social"><i
-                                    class="fa-brands fa-square-facebook"></i></a>
-                            {% endif %}
-                        </div>
-                    </div>
+            <div class="card-body">
+                <!-- Title -->
+                <a class="author recipe-title" href="{% url 'user_profile' profile.id %}">
+                    <p class="card-title">{{profile.name}}</p>
+                </a>
+                <hr>
+                <!-- About -->
+                <p class="card-text">{{profile.short_intro|slice:'160'}}.......</p>
+                <hr>
+                <!-- Created on -->
+                <p>Member Since:</p>
+                <p>{{profile.created_on}}</p>
+                <!-- Dynamic social media links -->
+                <div class="card-body">
+                    {% if profile.social_github %}
+                    <a href="{{profile.social_github}}" target="_blank" class="social"><i
+                            class="fa-brands fa-square-github"></i></a>
+                    {% endif %}
+                    {% if profile.social_linkedin %}
+                    <a href="{{profile.social_linkedin}}" target="_blank" class="social"><i
+                            class="fa-brands fa-linkedin"></i></a>
+                    {% endif %}
+                    {% if profile.social_youtube %}
+                    <a href="{{profile.social_youtube}}" target="_blank" class="social"><i
+                            class="fa-brands fa-square-youtube"></i></a>
+                    {% endif %}
+                    {% if profile.social_twitter %}
+                    <a href="{{profile.social_twitter}}" target="_blank" class="social"><i
+                            class="fa-brands fa-square-twitter"></i></a>
+                    {% endif %}
+                    {% if profile.social_facebook %}
+                    <a href="{{profile.social_facebook}}" target="_blank" class="social"><i
+                            class="fa-brands fa-square-facebook"></i></a>
+                    {% endif %}
                 </div>
             </div>
         </div>
         {% endfor %}
-        
     </section>
     {% include 'pagination.html' with queryset=profiles custom_range=custom_range %}
 
-
 </main>
-
 {% endblock content %}

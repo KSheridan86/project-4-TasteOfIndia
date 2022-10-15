@@ -39,6 +39,7 @@ def recipe(request, pk):
 
 @login_required(login_url='sign_in')
 def create_recipe(request):
+    page = 'create'
     profile = request.user.profile
     form = RecipeForm()
 
@@ -55,23 +56,23 @@ def create_recipe(request):
                 recipe.tags.add(tag)
             return redirect('user_profile', pk=profile.id)
     context = {
-        'form': form
+        'form': form,
+        'page': page
     }
     return render(request, 'recipeapp/recipe_form.html', context)
 
 
 @login_required(login_url='sign_in')
 def update_recipe(request, pk):
+    page = 'update'
     profile = request.user.profile
     recipe = profile.recipe_set.get(id=pk)
+    old_tags = recipe.tags.all()
     form = RecipeForm(instance=recipe)
 
     if request.method == 'POST':
-        old_tags = recipe.tags.all()
-        print(old_tags)
-        old_tags.delete()
-        refresh = recipe.tags.all()
-        print(refresh)
+        for tag in old_tags:
+            recipe.tags.remove(tag)
 
         user_tags = request.POST.get('tag_string').replace(
             ',', ' ').replace('-', ' ').split()
@@ -88,7 +89,8 @@ def update_recipe(request, pk):
 
     context = {
         'form': form,
-        'recipe': recipe
+        'recipe': recipe,
+        'page': page
     }
     return render(request, 'recipeapp/recipe_form.html', context)
 

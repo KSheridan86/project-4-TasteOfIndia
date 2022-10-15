@@ -1,17 +1,18 @@
 {% extends 'main.html' %}
-
 {% block content %}
 
+<!-- Edit profile form -->
+
 <main class="container mt-0 mb-5">
-    
-    <div class="row justify-content-center g-0">
-        <a href="{% url 'user_profile' request.user.profile.id %}"><button class="btn back-btn">Back</button></a>
+
+    <section class="row justify-content-center g-0 mt-5">
         <div
-            class="col-12 col-md-6 col-lg-5 col-xl-4 p-2 mt-0 card-welcome border border-dark border-2 rounded-4 justify-content-center">
-            
+            class="col-12 col-md-6 col-lg-5 col-xl-4 p-2 mt-5 card-welcome border border-dark border-2 rounded-4 justify-content-center">
             <form method="POST" action="{% url 'edit_account' %}" enctype="multipart/form-data">
+                <a href="{% url 'user_profile' request.user.profile.id %}"><button class="btn">Back</button></a>
                 <h1 class="mb-3 mt-0">Edit Details</h1>
                 {% csrf_token %}
+
                 {% for field in form %}
                 <label for="inputtxt">{{field.label}}</label>
                 <br>
@@ -21,9 +22,8 @@
 
                 <input class="btn btn-primary" type="submit" value="Save" />
             </form>
-
         </div>
-    </div>
+    </section>
 </main>
 
 {% endblock content %}

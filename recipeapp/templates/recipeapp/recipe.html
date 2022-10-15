@@ -3,15 +3,16 @@
 {% block content %}
 
 <main class="container text-center g-5 mt-5">
+    <section>
 
-    <div id="single-recipe" class="row justify-content-around justify-content-md-start mt-lg-0">
+        <div id="single-recipe" class="row justify-content-around justify-content-md-start mt-lg-0">
+            <div id="recipe-card-main"
+                class="card border border-dark border-2 rounded-4 col-11 col-md-5 col-lg-5 col-xl-5 g-5">
 
-        <div id="recipe-card-main" class="card border border-dark border-2 rounded-4 col-11 col-md-5 col-lg-5 col-xl-5 g-5">
-            
                 {% if 'placeholder' in recipe.featured_image.url %}
                 <a href="{% url 'recipe' recipe.id %}">
                     <img class="card-img-top border border-dark border-2 rounded-4 mt-4 mb-2"
-                        src="{% static 'images/user-default.png' %}" alt="Card image cap">
+                        src="{% static 'images/empty-bowl.jpg' %}" alt="Card image cap">
                 </a>
                 {% else %}
                 <a href="{% url 'recipe' recipe.id %}">
@@ -20,83 +21,81 @@
                 </a>
                 {% endif %}
 
-            
-            <!-- Title -->
-            <a class="author recipe-title" href="{% url 'recipe' recipe.id %}">
-                <p>{{recipe.title}}</p>
-            </a>
-            <p>by:</p>
-
-            <!-- Author -->
-            <a href="{% url 'user_profile' recipe.owner.id %}" class="author-signature">{{recipe.owner.name}}</a>
-            <hr>
-            <!-- Tags -->
-            <div>
-                {% for tag in recipe.tags.all %}
-                <span class="badge">{{tag}}</span>
-                {% endfor %}
-            </div>
-            <hr>
-            <!-- Info-Excerpt -->
-            <p class="card-text tablet-font">
-                {{recipe.description|linebreaksbr}}
+                <!-- Title -->
+                <a class="author recipe-title" href="{% url 'recipe' recipe.id %}">
+                    <p>{{recipe.title}}</p>
+                </a>
+                <p>by:</p>
+                <!-- Author -->
+                <a href="{% url 'user_profile' recipe.owner.id %}" class="author-signature">{{recipe.owner.name}}</a>
                 <hr>
-                Recipe added:<br>
-                {{recipe.created_on}}
+                <!-- Tags -->
+                <div>
+                    {% for tag in recipe.tags.all %}
+                    <span class="badge">{{tag}}</span>
+                    {% endfor %}
+                </div>
+                <hr>
+                <!-- Info-Excerpt -->
+                <p class="card-text tablet-font">
+                    {{recipe.description|linebreaksbr}}
+                    <hr>
+                </p>
+                <!-- Date added -->
+                <p class="recipe-added">
+                    Recipe added:<br>
+                    {{recipe.created_on}}
+                </p>
+            </div>
+        </div>
+        <!-- Ingredients -->
+        <div id="ingredient-card"
+            class="card col-12 col-md-6 col-xl-5 offset-md-6 border border-dark border-2 rounded-4">
+            <h2 class="mt-4 mb-3">Ingredients</h2>
+            <p class="card-text">
+                <ul class="ingredients bio">
+                    <li class="recipepage-text">{{recipe.ingredients|linebreaksbr}}</li>
+                </ul>
             </p>
         </div>
-
-    </div>
-
-    <div id="ingredient-card" class="card col-12 col-md-6 col-xl-5 offset-md-6 border border-dark border-2 rounded-4">
-        <h2 class="mt-4 mb-3">Ingredients</h2>
-        <p class="card-text">
-            <ul class="ingredients bio">
-                <li class="recipepage-text">{{recipe.ingredients|linebreaksbr}}</li>
-            </ul>
-        </p>
-    </div>
-
-    <div class="card col-12 col-md-6 col-xl-5 offset-md-6 border border-dark border-2 rounded-4 mt-4 mb-5">
-        <h2 class="mt-3">Method</h2>
-        <p class="card-text">
-            <ul class="ingredients">
-                <li class="recipepage-text">
-                    {{recipe.method|linebreaksbr}}
-                </li>
-            </ul>
-        </p>
-    </div>
-
-    {% if user.is_authenticated %}
-    <div class="card col-12 col-md-6 col-xl-5 offset-md-6 border border-dark border-2 rounded-4 mt-4 mb-5">
-        <form action="{% url 'recipe' recipe.id %}" method="POST">
-            {% csrf_token %}
-            <h2>Comments</h2>
+        <!-- Method -->
+        <div class="card col-12 col-md-6 col-xl-5 offset-md-6 border border-dark border-2 rounded-4 mt-4 mb-5">
+            <h2 class="mt-3">Method</h2>
+            <p class="card-text">
+                <ul class="ingredients">
+                    <li class="recipepage-text">
+                        {{recipe.method|linebreaksbr}}
+                    </li>
+                </ul>
+            </p>
+        </div>
+        <!-- User comments, restricted to logged in users -->
+        {% if user.is_authenticated %}
+        <div class="card col-12 col-md-6 col-xl-5 offset-md-6 border border-dark border-2 rounded-4 mt-4 mb-5">
+            <form action="{% url 'recipe' recipe.id %}" method="POST">
+                {% csrf_token %}
+                <h2>Comments</h2>
+                <hr>
+                {% for field in form %}
+                <label for="commentbox">{{field.label}}</label>
+                {{field}}
+                {% endfor %}
+                <br>
+                <input class="btn" type="Submit" value="Submit">
+            </form>
             <hr>
-            {% for field in form %}
-            <label for="commentbox">{{field.label}}</label>
-            {{field}}
+            {% for comment in recipe.comments.all %}
+            <span class="comment-box"><a href="{% url 'user_profile' comment.owner.id %}">
+                    <img class="comment-img border border-dark border-2 rounded-4 mt-0"
+                        src="{{comment.owner.profile_image.url}}" alt="Card image cap"></a>
+                <span class="comment border border-dark border-2 rounded-1">{{comment.body|linebreaksbr}}</span>
+            </span>
+            <hr>
             {% endfor %}
-            <br>
-            <input class="btn" type="Submit" value="Submit">
-        </form>
-        <hr>
-        {% for comment in recipe.comments.all %}
-        <span class="comment-box"><a href="{% url 'user_profile' comment.owner.id %}">
-                <img class="comment-img border border-dark border-2 rounded-4 mt-0" src="{{comment.owner.profile_image.url}}"
-                    alt="Card image cap"></a>
-            <span class="comment border border-dark border-2 rounded-1">{{comment.body|linebreaksbr}}</span>
-        </span>
-        <hr>
-        {% endfor %}
-        <hr>
-    </div>
-    {% endif %}
-
-
-
-
+            <hr>
+        </div>
+        {% endif %}
+    </section>
 </main>
 
 {% endblock content %}

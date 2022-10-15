@@ -9,10 +9,6 @@ class RecipeForm(ModelForm):
         fields = ['title', 'description',
                   'ingredients', 'method', 'featured_image']
 
-        # widgets = {
-        #     'tags': forms.CheckboxSelectMultiple()
-        # }
-
     def __init__(self, *args, **kwargs):
         super(RecipeForm, self).__init__(*args, **kwargs)
         self.fields['title'].widget.attrs.update(

@@ -266,6 +266,7 @@ footer>p {
 }
 
 /* recipes page styles */
+
 .recipe-title {
     text-align: center;
     font-size: 1.5rem;
@@ -404,6 +405,9 @@ textarea {
 #single-recipe {
     margin-bottom: 2rem;
 }
+.recipe-added {
+    margin-top: -1.75rem;
+}
 
 /* Chefs page styles */
 .search-btn {
@@ -428,6 +432,11 @@ textarea {
 
 #profile-content {
     margin-top: 1rem;
+}
+#crud-recipe-img {
+    display: inline-block;
+    height: 5rem;
+    width: 5rem;
 }
 
 /* user account page styles */
@@ -468,6 +477,10 @@ textarea {
 .thumbnail-img {
     height: 3rem;
     margin-bottom: .5rem;
+}
+.user-recipe-img {
+    width: 100%;
+    margin-bottom: 1rem;
 }
 
 .recipe-li-btn {
@@ -669,6 +682,10 @@ textarea {
     .thumbnail-img {
         height: 4.3rem;
     }
+    .user-recipe-img {
+        width: 80%;
+        margin-bottom: 1rem;
+    }
 }
 
 @media (min-width: 1023px) and (max-width: 1199px) {
@@ -689,7 +706,7 @@ textarea {
     }
 
     .card {
-        height: 70%;
+        height: 80%;
         background-color: #f1c993;
         box-shadow: 5px 5px 10px 1px;
     }
@@ -807,6 +824,10 @@ textarea {
         font-size: 1.2rem;
         line-height: 1.8rem;
     }
+    .user-recipe-img {
+        width: 70%;
+        margin-bottom: 1rem;
+    }
 }
 
 @media (min-width: 1200px) {
@@ -888,6 +909,7 @@ textarea {
 
     #recipe-card-main {
         height: 81vh;
+        width: 30vw;
         margin-top: 0rem;
     }
     .recipe-title {
@@ -921,7 +943,7 @@ textarea {
         margin-left: 18rem;
     }
     .recipe-li-title {
-        font-size: 1.7rem;
+        font-size: 1.3rem;
     }
     .recipe-li-button {
         line-height: 1.8rem;
@@ -929,5 +951,13 @@ textarea {
     }
     .thumbnail-img {
         height: 5rem;
+    }
+    .user-recipe-img {
+        width: 70%;
+        margin-bottom: 1rem;
+    }
+    #bio-img {
+        height: 4rem;
+        width: 4rem;
     }
 }

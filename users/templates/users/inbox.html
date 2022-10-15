@@ -1,22 +1,20 @@
 {% extends 'main.html' %}
 {% load static %}
 {% block content %}
-
+<!-- Users Inbox for private messages -->
 <main class="container">
     <section class="row justify-content-center mt-5 g-0">
         <div
             class="col-12 col-md-7 col-xl-5 p-2 card-inbox border border-dark border-2 rounded-4 justify-content-center">
-
             <h3>Inbox</h3>
             <p>Unread: {{unreadCount}}</p>
-
             <div class="row justify-content-center">
                 <div class="col-12">
                     <ul>
                         {% for message in messageRequests %}
                         {% if message.is_read == False %}
                         <li class="li">
-                        {% else %}
+                            {% else %}
                         <li class="li-read"></li>
                         {% endif %}
                         <a class="inbox-msg" href="{% url 'view_message' message.id %}">
@@ -25,16 +23,15 @@
                             <span>{{message.subject}}</span>
                             <br>
                             <a href="{% url 'delete_message' message.id %}">
-                                <button class="col-3 mb-2 inbox-btn border border-dark border-2 rounded-4 offset-9">Delete</button>
+                                <button
+                                    class="col-3 mb-2 inbox-btn border border-dark border-2 rounded-4 offset-9">Delete</button>
                             </a>
                         </a>
                         </li>
                         {% endfor %}
                     </ul>
-
                 </div>
             </div>
-
         </div>
     </section>
 </main>

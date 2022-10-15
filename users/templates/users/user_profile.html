@@ -93,18 +93,19 @@
             class="card border border-dark border-2 rounded-4 col-12 col-md-10 col-lg-7 col-xl-6 p-4 m-0 m-xl-3 mt-3 mb-5 mb-xl-5">
             <h5 class="card-title">My Recipes:</h5>
             <hr>
-            {% for recipe in profile.recipe_set.all %}
             <ul>
+                {% for recipe in profile.recipe_set.all %}
+
                 <li class="recipe-li">
                     <span class="recipe-li-title">{{recipe.title}}</span>
                 </li>
                 <!-- fix inline styling -->
                 <li class="li">
-                    <div style="display: inline-block">
+                    <div id="crud-recipe-img">
                         {% if 'placeholder' in recipe.featured_image.url %}
                         <a href="{% url 'recipe' recipe.id %}">
                             <img class="thumbnail-img border border-dark border-2 rounded-4"
-                                src="{% static 'images/user-default.png' %}" alt="Card image cap"></a>
+                                src="{% static 'images/empty-bowl.jpg' %}" alt="Card image cap"></a>
                         {% else %}
                         <a href="{% url 'recipe' recipe.id %}">
                             <img class="thumbnail-img border border-dark border-2 rounded-4"
@@ -123,9 +124,9 @@
                     </div>
                 </li>
 
-            </ul>
-            {% endfor %}
 
+                {% endfor %}
+            </ul>
             <a href="{% url 'create_recipe' %}">
                 <button id="msg-btn" class="btn">Add Recipe</button>
             </a>
@@ -148,26 +149,20 @@
                 <div style="display: inline-block">
                     {% if 'placeholder' in recipe.featured_image.url %}
                     <a href="{% url 'recipe' recipe.id %}">
-                        <img class="thumbnail-img border border-dark border-2 rounded-4"
+                        <img class="user-recipe-img border border-dark border-2 rounded-4"
                             src="{% static 'images/user-default.png' %}" alt="Card image cap"></a>
                     {% else %}
                     <a href="{% url 'recipe' recipe.id %}">
-                        <img class="thumbnail-img border border-dark border-2 rounded-4"
+                        <img class="user-recipe-img border border-dark border-2 rounded-4"
                             src="{{recipe.featured_image.url}}" alt="Card image cap"></a>
                     {% endif %}
                 </div>
-
-
-                <!-- <p>by:</p>
-                <a href="" class="author">{{recipe.owner.name}}</a>
-                <hr> -->
 
                 <div>
                     {% for tag in recipe.tags.all %}
                     <span class="badge">{{tag}}</span>
                     {% endfor %}
                 </div>
-                <!-- <hr> -->
                 <p class="bio">{{recipe.description}}</p>
                 <hr>
             </div>

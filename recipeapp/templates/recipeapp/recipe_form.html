@@ -4,7 +4,7 @@
 
 <main class="container mt-0 mb-5">
 
-  <div class="row justify-content-center g-0">
+  <section class="row justify-content-center g-0">
 
     <div
       class="col-12 col-md-6 col-lg-5 col-xl-4 p-2 card-welcome border border-dark border-2 rounded-4 justify-content-center">
@@ -15,9 +15,14 @@
             Back
           </a>
         </button>
+        <!-- Dynamic form title -->
+        {% if page == 'create' %}
         <h4>Add Recipe</h4>
+        {% elif page == 'update' %}
+        <h4>Edit Recipe</h4>
+        {% endif %}
         {% csrf_token %}
-
+        <!-- Dynamic form content -->
         {% for field in form %}
         <div class="mb-3">
           <label for="recipe inputs" class="form-label">{{field.label}}</label>
@@ -26,7 +31,13 @@
         </div>
         {% endfor %}
         <hr>
+        <!-- Dynamic Tag form depending on create or edit functionality -->
+        {% if page == 'create' %}
+        <h5>Tags</h5>
+        {% elif page == 'update' %}
         <h5>Current Tags</h5>
+        {% endif %}
+        
         <div class="mb-3">
           {% for tag in recipe.tags.all %}
           <span class="badge">{{tag}}</span>
@@ -34,35 +45,35 @@
         </div>
         <hr>
 
+        {% if page == 'create' %}
+        <div class="mb-3">
+          <label for="tag input" class="form-label"><b>Enter tags</b>
+            <br>
+            <small>Please use a space or a comma between each tag.....</small>
+          </label>
+          <input class="form-control register" placeholder="Spicy Vegetarian, Mild etc..."
+            name="tag_string"></input>
+        </div>
+        {% elif page == 'update' %}
         <div class="mb-3">
           <label for="tag input" class="form-label"><b>Enter new tags</b>
             <br>
             <small>Please use a space or a comma between each new tag.....</small>
           </label>
-          <input class="form-control register" placeholder="Enter tags eg...Spicy or Vegetarian etc..."
+          <input class="form-control register" placeholder="Spicy Vegetarian, Mild etc..."
             name="tag_string"></input>
           <div>
             <p><small>**Warning**</small></p>
             <p class="tag-warning"><small>New tags will overwrite old tags.</small></p>
             <p class="tag-warning"><small>Please include <b>ALL</b> relevent tags above.</small></p>
           </div>
-
         </div>
-
+        {% endif %}
         <button type="submit" class="btn btn-primary">Save Recipe</button>
       </form>
     </div>
-  </div>
+  </section>
 
 </main>
 
-<!-- <script type="text/javascript">
-  let singleTag = document.getElementsByClassName('tag-delete');
-  for(let i = 0; singleTag.length > i; i++ ) {
-    singleTag[i].addEventListener('click', (e) => {
-      let tagId = e.target.dataset.tag
-      let recipeId = e.target.dataset.recipe
-    })
-  }
-</script> -->
 {% endblock %}
