@@ -618,7 +618,7 @@ textarea {
 
     .form-control {
         display: inline;
-        width: 75%;
+        width: 100%;
     }
 
     .register {
@@ -864,13 +864,13 @@ textarea {
         width: 5rem;
     }
 
-    .form-control {
+    /* .form-control {
         display: inline;
-        width: 60%;
-    }
+        width: 100%;
+    } */
 
     .register {
-        width: 80%;
+        width: 100%;
     }
 
     .nav-profile {

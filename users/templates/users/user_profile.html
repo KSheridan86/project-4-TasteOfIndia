@@ -5,10 +5,10 @@
 <main class="container text-center g-5">
 
     <div id="myprofile" class="row justify-content-lg-start justify-content-center">
-
         <div
             class="card card-account border border-dark border-2 rounded-4 col-12 col-md-10 col-lg-4 col-xl-4 justify-content-center justify-content-md-start ">
             <div class="row p-2">
+                <!-- Profile Image -->
                 <div class=" m-auto p-auto mt-3 mt-lg-4 col-md-6 col-lg-5 col-xl-6">
                     {% if 'placeholder' in profile.profile_image.url %}
                     <img class="chef-profile border border-dark border-2 rounded-4"
@@ -20,7 +20,7 @@
                     <div class="card-body">
                         <!-- Title -->
                         <h5 class="recipe-title">{{profile.name}}</h5>
-
+                        <!-- Dynamic button for Editing Profile or Sending Private messages -->
                         {% if profile.id == request.user.profile.id %}
                         <a href="{% url 'edit_account' %}">
                             <button id="msg-btn" class="btn">Edit Profile</button>
@@ -30,9 +30,9 @@
                             <button id="msg-btn" class="btn">Send Message</button>
                         </a>
                         {% endif %}
-
                     </div>
                     <div class="card-body">
+                        <!-- Dynamic Social media links -->
                         {% if profile.social_github %}
                         <a href="{{profile.social_github}}" target="_blank" class="social"><i
                                 class="fa-brands fa-square-github"></i></a>
@@ -53,10 +53,8 @@
                         <a href="{{profile.social_facebook}}" target="_blank" class="social"><i
                                 class="fa-brands fa-square-facebook"></i></a>
                         {% endif %}
-
                     </div>
                 </div>
-                <!-- This div below is where to place a quote etc to show beside picture -->
 
                 <div class="col-md-6 p-md-3 col-lg-7 col-xl-6">
                     <p class="bio">{{profile.short_intro}}</p>
@@ -88,6 +86,8 @@
             </div>
         </div>
 
+        <!-- If user is on thier own profile page show recipe crud functionality -->
+        <!-- If user is on another users profile page show users recipes -->
         {% if profile.id == request.user.profile.id %}
         <div id="profile-details"
             class="card border border-dark border-2 rounded-4 col-12 col-md-10 col-lg-7 col-xl-6 p-4 m-0 m-xl-3 mt-3 mb-5 mb-xl-5">

@@ -5,63 +5,64 @@
 {% if page == 'sign_in' %}
 
 <main class="container">
-
-    <div class="row justify-content-center g-0">
+    <section class="row justify-content-center g-0">
         <div
             class="col-11 col-md-6 col-lg-5 col-xl-4 p-2 mb-5 card-welcome border border-dark border-2 rounded-4 justify-content-center">
-
             <form method="POST" action="{% url 'sign_in' %}">
                 {% csrf_token %}
                 <div class="mb-3">
                     <label for="username" class="form-label">Username</label>
+                    <br>
                     <input type="text" name="username" class="form-control" id="username"
                         aria-describedby="usernameHelp" placeholder="Joe_Bloggs69">
                 </div>
                 <div class="mb-3">
                     <label for="password" class="form-label">Password</label>
+                    <br>
                     <input type="password" name="password" class="form-control" id="password" placeholder="********">
                 </div>
-
-                <small style="color: red;"><b></b></small>
 
                 <button type="submit" class="btn btn-primary">
                     <a class="login-register" href="{% url 'sign_in' %}">Log In</a>
                 </button>
                 <hr>
                 <p>Don't have an account? <br> Register here...</p>
-                <button type="submit" class="btn btn-primary"><a class="login-register" href="{% url 'register' %}">Register</a></button>
+                <button type="submit" class="btn btn-primary"><a class="login-register"
+                        href="{% url 'register' %}">Register</a></button>
             </form>
         </div>
-    </div>
-
+    </section>
 </main>
 
 {% else %}
 <main class="container">
-    <div class="row justify-content-center g-0 mb-5">
+    <section class="row justify-content-center g-0 mb-5">
         <div
             class="col-11 col-md-6 col-lg-5 col-xl-4 p-2 card-welcome border border-dark border-2 rounded-4 justify-content-center">
-
             <form method="POST" action="{% url 'register' %}">
-
                 {% csrf_token %}
                 {% for field in form %}
                 <label for="inputtxt">{{field.label}}</label>
                 {{field}}
-
+                
+                {% for error in field.errors %}
+                <br>
+                <small style="color: red;"><b>**{{error}}**</b></small>
+                <br>
+                {% endfor %}
+                
                 {% endfor %}
                 <input type="submit" value="Register" class="btn btn-primary" />
-                
                 <hr>
                 <p>Already have an account? <br> Sign in here...</p>
-                <button type="submit" class="btn btn-primary"><a class="login-register" href="{% url 'sign_in' %}">Sign In</a>
+                <button type="submit" class="btn btn-primary"><a class="login-register" href="{% url 'sign_in' %}">Sign
+                        In</a>
                 </button>
             </form>
         </div>
-    </div>
+    </section>
 
 </main>
-
 {% endif %}
 
 {% endblock %}
