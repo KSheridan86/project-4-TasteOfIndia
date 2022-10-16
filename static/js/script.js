@@ -5,7 +5,7 @@ let searchForm = document.querySelector('#searchForm');
 let pageBtn = document.querySelectorAll('.page-btn');
 let topBtn = document.querySelector('.back-to-top');
 
-// Code to close to message boxes automatically and allow you to close them manually
+// Code to close the message boxes automatically and allow you to close them manually
 if (closealert) {
     messages.style.display = 'block'
     closealert.addEventListener('click', () =>
@@ -20,15 +20,14 @@ if (searchForm) {
     for (let i = 0; pageBtn.length > i; i++) {
     pageBtn[i].addEventListener('click', function (event) {
         event.preventDefault()
-        console.log('still here')
         let page = this.dataset.page
-        console.log(page)
         searchForm.innerHTML += `<input value=${page} name="page" hidden/>`
         searchForm.submit()
     })
 }
 }
 
+// Code to hide the back to top button until the user scrolls down
 function backToTop() {
     if (document.body.scrollTop > 400 || document.documentElement.scrollTop > 400) {
         topBtn.style.display = "block";

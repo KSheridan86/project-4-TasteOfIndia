@@ -1,13 +1,13 @@
 from django.db import models
-import uuid
-from users.models import Profile
 from django.contrib.auth.models import User
+import uuid
 from cloudinary.models import CloudinaryField
+from users.models import Profile
 
 
 class Recipe(models.Model):
     '''
-    Docstrings R us!
+    Recipe model, used to add recipes to the database
     '''
     id = models.UUIDField(
         default=uuid.uuid4, unique=True, primary_key=True, editable=False)
@@ -23,23 +23,17 @@ class Recipe(models.Model):
 
     class Meta:
         """
-        Docstrings R us!!
+        Helper function to organize recipes by newest first
         """
         ordering = ['-created_on']
 
     def __str__(self):
         return str(self.title)
 
-    def number_of_likes(self):
-        """
-        Docstrings R us!
-        """
-        return self.likes.count()
-
 
 class Tag(models.Model):
     '''
-    Docstrings R us!
+    Add warning tags to recipes, eg..Spicy, Vegetarian...
     '''
     name = models.CharField(max_length=200)
     created_on = models.DateTimeField(auto_now_add=True)
@@ -52,7 +46,7 @@ class Tag(models.Model):
 
 class Comment(models.Model):
     """
-    Docstrings R us!!
+    Leave comments on recipes
     """
     owner = models.ForeignKey(
         Profile, null=True, on_delete=models.CASCADE)
@@ -65,7 +59,7 @@ class Comment(models.Model):
 
     class Meta:
         """
-        Docstrings R us!!
+        Order comments by oldest first
         """
         ordering = ['created_on']
 

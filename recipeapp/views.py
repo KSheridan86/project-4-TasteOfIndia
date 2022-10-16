@@ -71,13 +71,18 @@ def update_recipe(request, pk):
     form = RecipeForm(instance=recipe)
 
     if request.method == 'POST':
-        for tag in old_tags:
-            recipe.tags.remove(tag)
-
+        
         user_tags = request.POST.get('tag_string').replace(
             ',', ' ').replace('-', ' ').split()
         for i in range(len(user_tags)):
             user_tags[i] = user_tags[i].capitalize()
+        if len(user_tags) == 0:
+            for i in range(len(old_tags)):
+                user_tags.append(old_tags[i])
+                print(user_tags)
+        else:
+            for tag in old_tags:
+                recipe.tags.remove(tag)
 
         form = RecipeForm(request.POST, request.FILES, instance=recipe)
         if form.is_valid():
