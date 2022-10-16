@@ -3,173 +3,173 @@
 {% block content %}
 
 <main class="container text-center g-5">
-
-    <div id="myprofile" class="row justify-content-lg-start justify-content-center">
-        <div
-            class="card card-account border border-dark border-2 rounded-4 col-12 col-md-10 col-lg-4 col-xl-4 justify-content-center justify-content-md-start ">
-            <div class="row p-2">
-                <!-- Profile Image -->
-                <div class=" m-auto p-auto mt-3 mt-lg-4 col-md-6 col-lg-5 col-xl-6">
-                    {% if 'placeholder' in profile.profile_image.url %}
-                    <img class="chef-profile border border-dark border-2 rounded-4"
-                        src="{% static 'images/user-default.png' %}" alt="Card image cap">
-                    {% else %}
-                    <img class="chef-profile border border-dark border-2 rounded-4 offset-lg-0"
-                        src="{{profile.profile_image.url}}" alt="Card image cap">
-                    {% endif %}
-                    <div class="card-body">
-                        <!-- Title -->
-                        <h5 class="recipe-title">{{profile.name}}</h5>
-                        <!-- Dynamic button for Editing Profile or Sending Private messages -->
-                        {% if profile.id == request.user.profile.id %}
-                        <a href="{% url 'edit_account' %}">
-                            <button id="msg-btn" class="btn">Edit Profile</button>
-                        </a>
+    <section>
+        <div id="myprofile" class="row justify-content-lg-start justify-content-center">
+            <div
+                class="card card-account border border-dark border-2 rounded-4 col-12 col-md-10 col-lg-4 col-xl-4 justify-content-center justify-content-md-start ">
+                <div class="row p-2">
+                    <!-- Profile Image -->
+                    <div class=" m-auto p-auto mt-3 mt-lg-4 col-md-6 col-lg-5 col-xl-6">
+                        {% if 'placeholder' in profile.profile_image.url %}
+                        <img class="chef-profile border border-dark border-2 rounded-4"
+                            src="{% static 'images/user-default.png' %}" alt="Card image cap">
                         {% else %}
-                        <a href="{% url 'create_message' profile.id %}">
-                            <button id="msg-btn" class="btn">Send Message</button>
-                        </a>
+                        <img class="chef-profile border border-dark border-2 rounded-4 offset-lg-0"
+                            src="{{profile.profile_image.url}}" alt="Card image cap">
                         {% endif %}
+                        <div class="card-body">
+                            <!-- Title -->
+                            <h5 class="recipe-title">{{profile.name}}</h5>
+                            <!-- Dynamic button for Editing Profile or Sending Private messages -->
+                            {% if profile.id == request.user.profile.id %}
+                            <a href="{% url 'edit_account' %}">
+                                <button id="msg-btn" class="btn">Edit Profile</button>
+                            </a>
+                            {% else %}
+                            <a href="{% url 'create_message' profile.id %}">
+                                <button id="msg-btn" class="btn">Send Message</button>
+                            </a>
+                            {% endif %}
+                        </div>
+                        <div class="card-body">
+                            <!-- Dynamic Social media links -->
+                            {% if profile.social_github %}
+                            <a href="{{profile.social_github}}" target="_blank" class="social"><i
+                                    class="fa-brands fa-square-github"></i></a>
+                            {% endif %}
+                            {% if profile.social_linkedin %}
+                            <a href="{{profile.social_linkedin}}" target="_blank" class="social"><i
+                                    class="fa-brands fa-linkedin"></i></a>
+                            {% endif %}
+                            {% if profile.social_youtube %}
+                            <a href="{{profile.social_youtube}}" target="_blank" class="social"><i
+                                    class="fa-brands fa-square-youtube"></i></a>
+                            {% endif %}
+                            {% if profile.social_twitter %}
+                            <a href="{{profile.social_twitter}}" target="_blank" class="social"><i
+                                    class="fa-brands fa-square-twitter"></i></a>
+                            {% endif %}
+                            {% if profile.social_facebook %}
+                            <a href="{{profile.social_facebook}}" target="_blank" class="social"><i
+                                    class="fa-brands fa-square-facebook"></i></a>
+                            {% endif %}
+                        </div>
                     </div>
-                    <div class="card-body">
-                        <!-- Dynamic Social media links -->
-                        {% if profile.social_github %}
-                        <a href="{{profile.social_github}}" target="_blank" class="social"><i
-                                class="fa-brands fa-square-github"></i></a>
-                        {% endif %}
-                        {% if profile.social_linkedin %}
-                        <a href="{{profile.social_linkedin}}" target="_blank" class="social"><i
-                                class="fa-brands fa-linkedin"></i></a>
-                        {% endif %}
-                        {% if profile.social_youtube %}
-                        <a href="{{profile.social_youtube}}" target="_blank" class="social"><i
-                                class="fa-brands fa-square-youtube"></i></a>
-                        {% endif %}
-                        {% if profile.social_twitter %}
-                        <a href="{{profile.social_twitter}}" target="_blank" class="social"><i
-                                class="fa-brands fa-square-twitter"></i></a>
-                        {% endif %}
-                        {% if profile.social_facebook %}
-                        <a href="{{profile.social_facebook}}" target="_blank" class="social"><i
-                                class="fa-brands fa-square-facebook"></i></a>
-                        {% endif %}
+
+                    <div class="col-md-6 p-md-3 col-lg-7 col-xl-6">
+                        <p class="bio">{{profile.short_intro}}</p>
+                        <img id="bio-img" src="{% static 'images/knife-fork.png' %}">
                     </div>
+
                 </div>
-
-                <div class="col-md-6 p-md-3 col-lg-7 col-xl-6">
-                    <p class="bio">{{profile.short_intro}}</p>
-                    <img id="bio-img" src="{% static 'images/knife-fork.png' %}">
-                </div>
-
-            </div>
-        </div>
-    </div>
-
-
-    <div id="profile-content" class="row justify-content-center justify-content-lg-end">
-
-        <div id="profile-details"
-            class="card border border-dark border-2 rounded-4 col-12 col-md-10 col-lg-7 col-xl-6 p-4 m-0 m-xl-3">
-
-            <div>
-                <hr>
-                <h5 class="card-title">Quote:</h5>
-                <hr>
-                <p class="bio">{{profile.quote}}</p>
-            </div>
-
-            <div class="justify-content-center">
-                <hr>
-                <h5 class="card-title">Bio:</h5>
-                <hr>
-                <p class="bio">{{profile.bio}}</p>
             </div>
         </div>
 
-        <!-- If user is on thier own profile page show recipe crud functionality -->
-        <!-- If user is on another users profile page show users recipes -->
-        {% if profile.id == request.user.profile.id %}
-        <div id="profile-details"
-            class="card border border-dark border-2 rounded-4 col-12 col-md-10 col-lg-7 col-xl-6 p-4 m-0 m-xl-3 mt-3 mb-5 mb-xl-5">
-            <h5 class="card-title">My Recipes:</h5>
-            <hr>
-            <ul>
+
+        <div id="profile-content" class="row justify-content-center justify-content-lg-end">
+
+            <div id="profile-details"
+                class="card border border-dark border-2 rounded-4 col-12 col-md-10 col-lg-7 col-xl-6 p-4 m-0 m-xl-3">
+            <!-- Profile Info -->
+                <div>
+                    <hr>
+                    <h5 class="card-title">Quote:</h5>
+                    <hr>
+                    <p class="bio">{{profile.quote}}</p>
+                </div>
+
+                <div class="justify-content-center">
+                    <hr>
+                    <h5 class="card-title">Bio:</h5>
+                    <hr>
+                    <p class="bio">{{profile.bio}}</p>
+                </div>
+            </div>
+
+            <!-- If user is on thier own profile page show recipe crud functionality -->
+            <!-- If user is on another users profile page show users recipes -->
+            {% if profile.id == request.user.profile.id %}
+            <div id="profile-details"
+                class="card border border-dark border-2 rounded-4 col-12 col-md-10 col-lg-7 col-xl-6 p-4 m-0 m-xl-3 mt-3 mb-5 mb-xl-5">
+                <h5 class="card-title">My Recipes:</h5>
+                <hr>
+                <ul>
+                    {% for recipe in profile.recipe_set.all %}
+
+                    <li class="recipe-li">
+                        <span class="recipe-li-title">{{recipe.title}}</span>
+                    </li>
+
+                    <li class="li">
+                        <div id="crud-recipe-img">
+                            {% if 'placeholder' in recipe.featured_image.url %}
+                            <a href="{% url 'recipe' recipe.id %}">
+                                <img class="thumbnail-img border border-dark border-2 rounded-4"
+                                    src="{% static 'images/empty-bowl.jpg' %}" alt="Card image cap"></a>
+                            {% else %}
+                            <a href="{% url 'recipe' recipe.id %}">
+                                <img class="thumbnail-img border border-dark border-2 rounded-4"
+                                    src="{{recipe.featured_image.url}}" alt="Card image cap"></a>
+                            {% endif %}
+                        </div>
+
+                        <div id="right-align">
+                            <a href="{% url 'update_recipe' recipe.id %}">
+                                <button class="recipe-li-btn border border-dark border-2 rounded-4">Edit</button>
+                            </a>
+
+                            <a href="{% url 'delete_recipe' recipe.id %}">
+                                <button class="recipe-li-btn border border-dark border-2 rounded-4">Delete</button>
+                            </a>
+                        </div>
+                    </li>
+
+
+                    {% endfor %}
+                </ul>
+                <a href="{% url 'create_recipe' %}">
+                    <button id="msg-btn" class="btn">Add Recipe</button>
+                </a>
+                <a href="{% url 'delete_account' %}">
+                    <button id="msg-btn" class="btn">Delete Profile</button>
+                </a>
+            </div>
+            {% else %}
+
+            <div id="profile-details"
+                class="card border border-dark border-2 rounded-4 col-12 col-md-10 col-lg-7 col-xl-6 p-4 m-0 m-xl-3 mt-3 mb-5">
+                <h5 class="card-title">My Recipes:</h5>
+                <hr>
                 {% for recipe in profile.recipe_set.all %}
+                <div class="card-body row">
 
-                <li class="recipe-li">
-                    <span class="recipe-li-title">{{recipe.title}}</span>
-                </li>
-                <!-- fix inline styling -->
-                <li class="li">
-                    <div id="crud-recipe-img">
+                    <a class="card-title" href="{% url 'recipe' recipe.id %}">
+                        <h5>{{recipe.title}}</h5>
+                    </a>
+                    <div style="display: inline-block">
                         {% if 'placeholder' in recipe.featured_image.url %}
                         <a href="{% url 'recipe' recipe.id %}">
-                            <img class="thumbnail-img border border-dark border-2 rounded-4"
-                                src="{% static 'images/empty-bowl.jpg' %}" alt="Card image cap"></a>
+                            <img class="user-recipe-img border border-dark border-2 rounded-4"
+                                src="{% static 'images/user-default.png' %}" alt="Card image cap"></a>
                         {% else %}
                         <a href="{% url 'recipe' recipe.id %}">
-                            <img class="thumbnail-img border border-dark border-2 rounded-4"
+                            <img class="user-recipe-img border border-dark border-2 rounded-4"
                                 src="{{recipe.featured_image.url}}" alt="Card image cap"></a>
                         {% endif %}
                     </div>
 
-                    <div style="display: inline-block" id="right-align">
-                        <a href="{% url 'update_recipe' recipe.id %}">
-                            <button class="recipe-li-btn border border-dark border-2 rounded-4">Edit</button>
-                        </a>
-
-                        <a href="{% url 'delete_recipe' recipe.id %}">
-                            <button class="recipe-li-btn border border-dark border-2 rounded-4">Delete</button>
-                        </a>
+                    <div>
+                        {% for tag in recipe.tags.all %}
+                        <span class="badge">{{tag}}</span>
+                        {% endfor %}
                     </div>
-                </li>
-
-
+                    <p class="bio">{{recipe.description}}</p>
+                    <hr>
+                </div>
                 {% endfor %}
-            </ul>
-            <a href="{% url 'create_recipe' %}">
-                <button id="msg-btn" class="btn">Add Recipe</button>
-            </a>
-            <a href="{% url 'delete_account' %}">
-                <button id="msg-btn" class="btn">Delete Profile</button>
-            </a>
-        </div>
-        {% else %}
-
-        <div id="profile-details"
-            class="card border border-dark border-2 rounded-4 col-12 col-md-10 col-lg-7 col-xl-6 p-4 m-0 m-xl-3 mt-3 mb-5">
-            <h5 class="card-title">My Recipes:</h5>
-            <hr>
-            {% for recipe in profile.recipe_set.all %}
-            <div class="card-body row">
-
-                <a class="card-title" href="{% url 'recipe' recipe.id %}">
-                    <h5>{{recipe.title}}</h5>
-                </a>
-                <div style="display: inline-block">
-                    {% if 'placeholder' in recipe.featured_image.url %}
-                    <a href="{% url 'recipe' recipe.id %}">
-                        <img class="user-recipe-img border border-dark border-2 rounded-4"
-                            src="{% static 'images/user-default.png' %}" alt="Card image cap"></a>
-                    {% else %}
-                    <a href="{% url 'recipe' recipe.id %}">
-                        <img class="user-recipe-img border border-dark border-2 rounded-4"
-                            src="{{recipe.featured_image.url}}" alt="Card image cap"></a>
-                    {% endif %}
-                </div>
-
-                <div>
-                    {% for tag in recipe.tags.all %}
-                    <span class="badge">{{tag}}</span>
-                    {% endfor %}
-                </div>
-                <p class="bio">{{recipe.description}}</p>
-                <hr>
             </div>
-            {% endfor %}
+            {% endif %}
         </div>
-        {% endif %}
-    </div>
-
+    </section>
 </main>
 {% endblock %}

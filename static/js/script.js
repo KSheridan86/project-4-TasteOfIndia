@@ -3,6 +3,7 @@ let closealert = document.querySelector('.close-btn')
 let messages = document.querySelector('.messages')
 let searchForm = document.querySelector('#searchForm');
 let pageBtn = document.querySelectorAll('.page-btn');
+let topBtn = document.querySelector('.back-to-top');
 
 // Code to close to message boxes automatically and allow you to close them manually
 if (closealert) {
@@ -27,3 +28,13 @@ if (searchForm) {
     })
 }
 }
+
+function backToTop() {
+    if (document.body.scrollTop > 400 || document.documentElement.scrollTop > 400) {
+        topBtn.style.display = "block";
+      } else {
+        topBtn.style.display = "none";
+      }
+}
+
+window.onscroll = function() {backToTop()};
