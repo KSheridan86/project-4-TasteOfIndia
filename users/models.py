@@ -6,7 +6,7 @@ from cloudinary.models import CloudinaryField
 
 class Profile(models.Model):
     """
-    Docstrings R us!!
+    Create a user profile model
     """
     id = models.UUIDField(
         default=uuid.uuid4, unique=True, primary_key=True, editable=False)
@@ -28,9 +28,6 @@ class Profile(models.Model):
     created_on = models.DateTimeField(auto_now_add=True)
 
     class Meta:
-        """
-        Docstrings R us!!
-        """
         ordering = ['created_on']
 
     def __str__(self):
@@ -38,6 +35,9 @@ class Profile(models.Model):
 
 
 class Message(models.Model):
+    """
+    Private message model
+    """
     sender = models.ForeignKey(
         Profile, on_delete=models.SET_NULL, null=True, blank=True)
     recipient = models.ForeignKey(

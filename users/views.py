@@ -9,6 +9,10 @@ from .forms import RegisterForm, ProfileForm, MessageForm
 from .utils import search_profiles, profile_pagination
 
 
+def landingpage(request):
+    return render(request, 'landingpage.html')
+
+
 def sign_in(request):
     page = 'sign_in'
     if request.user.is_authenticated:
@@ -110,10 +114,6 @@ def profiles(request):
     return render(request, 'users/profiles.html', context)
 
 
-def landingpage(request):
-    return render(request, 'landingpage.html')
-
-
 @login_required(login_url='sign_up')
 def inbox(request):
     profile = request.user.profile
@@ -171,9 +171,6 @@ def create_message(request, pk):
 
 @login_required(login_url='login')
 def delete_message(request, pk):
-    """
-    Docstrings R us!!
-    """
     page = 'delete'
     profile = request.user.profile
     message = profile.messages.get(id=pk)

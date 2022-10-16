@@ -140,6 +140,8 @@ h5 {
 }
 .nav-item {
     text-align: center;
+    line-height: 4rem;
+    border-top: 1px solid black;
 }
 .nav-link {
     font-weight: bold;
@@ -178,7 +180,7 @@ footer>p {
     font-weight: bold;
     text-decoration: none;
     padding: .5rem;
-    border-radius: 5rem;
+    border-radius: 50%;
     bottom: 1rem;
     width: 5rem;
     place-self: end;
@@ -243,7 +245,7 @@ footer>p {
     box-shadow: 2px 3px 10px 2px black;
     color: black;
     font-weight: bold;
-    width: 5rem;
+    width: 6rem;
 }
 .badge {
     background-color: #6c9a8b;
@@ -420,7 +422,7 @@ textarea {
     text-align: center;
 }
 .thumbnail-img {
-    height: 3rem;
+    height: 5rem;
     margin-bottom: .5rem;
 }
 .user-recipe-img {
@@ -493,12 +495,11 @@ textarea {
 }
 
 /* media queries */
-@media (max-width: 350px) {
-    .recipe-li-btn {
-        width: 4rem;
-    }
-}
+
 @media (max-width: 359px) {
+    #crud-recipe-img {
+        display: none;
+    }
     .navbar-brand {
         font-size: 1.2rem;
     }
@@ -515,7 +516,7 @@ textarea {
         margin-left: 1rem;
     }
 }
-@media (max-width: 376px) {
+@media (min-width: 359px) and (max-width: 376px) {
     #right-align {
         margin-left: 0rem;
         margin-bottom: 0.5rem;

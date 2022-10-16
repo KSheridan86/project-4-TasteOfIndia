@@ -65,12 +65,10 @@
             </div>
         </div>
 
-
         <div id="profile-content" class="row justify-content-center justify-content-lg-end">
-
             <div id="profile-details"
                 class="card border border-dark border-2 rounded-4 col-12 col-md-10 col-lg-7 col-xl-6 p-4 m-0 m-xl-3">
-            <!-- Profile Info -->
+                <!-- Profile Info -->
                 <div>
                     <hr>
                     <h5 class="card-title">Quote:</h5>
@@ -86,7 +84,7 @@
                 </div>
             </div>
 
-            <!-- If user is on thier own profile page show recipe crud functionality -->
+            <!-- If user is visiting own profile page show recipe crud functionality -->
             <!-- If user is on another users profile page show users recipes -->
             {% if profile.id == request.user.profile.id %}
             <div id="profile-details"
@@ -117,13 +115,11 @@
                             <a href="{% url 'update_recipe' recipe.id %}">
                                 <button class="recipe-li-btn border border-dark border-2 rounded-4">Edit</button>
                             </a>
-
                             <a href="{% url 'delete_recipe' recipe.id %}">
                                 <button class="recipe-li-btn border border-dark border-2 rounded-4">Delete</button>
                             </a>
                         </div>
                     </li>
-
 
                     {% endfor %}
                 </ul>
@@ -142,7 +138,6 @@
                 <hr>
                 {% for recipe in profile.recipe_set.all %}
                 <div class="card-body row">
-
                     <a class="card-title" href="{% url 'recipe' recipe.id %}">
                         <h5>{{recipe.title}}</h5>
                     </a>

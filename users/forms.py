@@ -5,6 +5,9 @@ from .models import Profile, Message
 
 
 class RegisterForm(UserCreationForm):
+    """
+    Register new user form
+    """
     class Meta:
         model = User
         fields = [
@@ -19,6 +22,9 @@ class RegisterForm(UserCreationForm):
 
 
 class ProfileForm(ModelForm):
+    """
+    Create user profile form
+    """
     class Meta:
         model = Profile
         fields = ['name', 'username', 'email', 'short_intro',
@@ -34,6 +40,9 @@ class ProfileForm(ModelForm):
 
 
 class MessageForm(ModelForm):
+    """
+    Form for sending private messages
+    """
     class Meta:
         model = Message
         fields = ['name', 'email', 'subject', 'body']

@@ -46,6 +46,8 @@ def create_recipe(request):
     if request.method == 'POST':
         user_tags = request.POST.get('tag_string').replace(
             ',', ' ').replace('-', ' ').split()
+        for i in range(len(user_tags)):
+            user_tags[i] = user_tags[i].capitalize()
         form = RecipeForm(request.POST, request.FILES)
         if form.is_valid():
             recipe = form.save(commit=False)
@@ -67,21 +69,19 @@ def update_recipe(request, pk):
     page = 'update'
     profile = request.user.profile
     recipe = profile.recipe_set.get(id=pk)
-    old_tags = recipe.tags.all()
+    current_tags = recipe.tags.all()
     form = RecipeForm(instance=recipe)
 
     if request.method == 'POST':
-        
         user_tags = request.POST.get('tag_string').replace(
             ',', ' ').replace('-', ' ').split()
         for i in range(len(user_tags)):
             user_tags[i] = user_tags[i].capitalize()
         if len(user_tags) == 0:
-            for i in range(len(old_tags)):
-                user_tags.append(old_tags[i])
-                print(user_tags)
+            for i in range(len(current_tags)):
+                user_tags.append(current_tags[i])
         else:
-            for tag in old_tags:
+            for tag in current_tags:
                 recipe.tags.remove(tag)
 
         form = RecipeForm(request.POST, request.FILES, instance=recipe)

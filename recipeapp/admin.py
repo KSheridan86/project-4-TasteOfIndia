@@ -4,9 +4,6 @@ from .models import Recipe, Tag, Comment
 
 @admin.register(Recipe)
 class RecipeAdmin(admin.ModelAdmin):
-    """
-    Docstrings R us!!
-    """
     list_filter = ('created_on', 'title')
     list_display = ('title', 'created_on')
     search_fields = ('title',)
@@ -14,9 +11,6 @@ class RecipeAdmin(admin.ModelAdmin):
 
 @admin.register(Tag)
 class TagAdmin(admin.ModelAdmin):
-    """
-    Docstrings R us!!
-    """
     list_filter = ('name',)
     list_display = ('name',)
     search_fields = ('name',)
@@ -24,9 +18,6 @@ class TagAdmin(admin.ModelAdmin):
 
 @admin.register(Comment)
 class CommentAdmin(admin.ModelAdmin):
-    """
-    Docstrings R us!!
-    """
     list_filter = ('created_on', 'body', 'recipe')
     list_display = ('body', 'recipe', 'created_on')
     search_fields = ('body', 'recipe', 'owner')
