@@ -77,7 +77,7 @@
                 <h2>Comments</h2>
                 <hr>
                 {% for field in form %}
-                <label for="commentbox">{{field.label}}</label>
+                <label>{{field.label}}</label>
                 {{field}}
                 {% endfor %}
                 <br>
@@ -92,7 +92,6 @@
             </span>
             <hr>
             {% endfor %}
-            <hr>
         </div>
         {% endif %}
     </section>
