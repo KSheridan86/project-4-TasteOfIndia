@@ -12,7 +12,7 @@
 
 <!-- Recipe cards -->
 <main class="container text-center g-5">
-    <section class="row justify-content-around mt-4">
+    <div class="row justify-content-around mt-4">
         {% for recipe in recipes %}
         <div
             class="card border border-dark border-2 rounded-4 mt-1 col-12 col-md-5 col-lg-3 col-xl-3 g-5 mx-2 ms-xl-3 mb-5">
@@ -41,15 +41,16 @@
             </div>
             <hr>
             <!-- Info-Excerpt -->
-            <p class="card-text">
+            <div class="card-text">
                 {{recipe.description|slice:'150'}}......
                 <hr>
-                Date added:<br>
+                Date added:
+                <br>
                 {{recipe.created_on}}
-            </p>
+            </div>
         </div>
         {% endfor %}
-    </section>
+    </div>
     {% include 'pagination.html' with queryset=recipes custom_range=custom_range %}
 </main>
 

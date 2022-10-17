@@ -296,7 +296,6 @@ footer>p {
     width: 90%;
     margin: auto;
     margin-top: 4rem;
-    padding: auto;
 }
 .ingredients {
     font-family: 'Noto Serif Georgian', serif;
@@ -316,7 +315,6 @@ textarea {
 }
 .comment {
     display: inline-block;
-    padding: auto;
     background-color: antiquewhite;
     width: 80%;
 }
@@ -468,7 +466,9 @@ textarea {
     box-shadow: 2px 3px 12px 1px black;
     color: black;
     font-size: 1.1rem;
-    line-height: 1.5rem;
+    line-height: 2.5rem;
+    width: 5rem;
+    padding: .25rem;
 }
 .li {
     border-bottom: 1px solid black;
@@ -489,6 +489,8 @@ textarea {
     background-color: #6c9a8b;
     border: 1px solid black;
     margin: 6rem 1rem 1rem 1rem;
+    width: 5rem;
+    height: 2.25rem;
 }
 .msg-txt {
     font-size: 1.1rem;
@@ -529,7 +531,7 @@ textarea {
     #myprofile {
         margin-top: 2rem;
     }
-    #profile-details {
+    .profile-details {
         margin-left: 2rem;
         margin-bottom: 2rem;
     }

@@ -15,18 +15,17 @@
                         {% if message.is_read == False %}
                         <li class="li">
                             {% else %}
-                        <li class="li-read"></li>
+                        <li class="li-read">
                         {% endif %}
                         <a class="inbox-msg" href="{% url 'view_message' message.id %}">
                             <span>{{message.name}} | <small>{{message.created}}</small></span>
                             <br>
                             <span>{{message.subject}}</span>
                             <br>
-                            <a href="{% url 'delete_message' message.id %}">
-                                <button
-                                    class="col-3 mb-2 inbox-btn border border-dark border-2 rounded-4 offset-9">Delete</button>
-                            </a>
                         </a>
+                        <a class="inbox-btn border border-dark border-2 rounded-4 offset-9" 
+                                href="{% url 'delete_message' message.id %}">Delete
+                            </a>
                         </li>
                         {% endfor %}
                     </ul>

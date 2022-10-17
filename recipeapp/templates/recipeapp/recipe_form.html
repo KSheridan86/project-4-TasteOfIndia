@@ -4,17 +4,17 @@
 
 <main class="container mt-0 mb-5">
 
-  <section class="row justify-content-center g-0">
+  <div class="row justify-content-center g-0">
 
     <div
       class="col-12 col-md-6 col-lg-5 col-xl-4 p-2 card-welcome border border-dark border-2 rounded-4 justify-content-center">
 
-      <form action="" method="POST" enctype="multipart/form-data">
-        <button type="submit" class="btn btn-primary mt-0">
-          <a class="login-register" href="{% url 'user_profile' request.user.profile.id %}">
+      <form method="POST" enctype="multipart/form-data">
+        
+          <a class="login-register btn btn-primary mt-0" href="{% url 'user_profile' request.user.profile.id %}">
             Back
           </a>
-        </button>
+        
         <!-- Dynamic form title -->
         {% if page == 'create' %}
         <h4>Add Recipe</h4>
@@ -25,7 +25,7 @@
         <!-- Dynamic form content -->
         {% for field in form %}
         <div class="mb-3">
-          <label for="recipe inputs" class="form-label">{{field.label}}</label>
+          <label class="form-label">{{field.label}}</label>
           <br>
           {{field}}
         </div>
@@ -47,21 +47,21 @@
 
         {% if page == 'create' %}
         <div class="mb-3">
-          <label for="tag input" class="form-label"><b>Enter tags</b>
+          <label class="form-label"><b>Enter tags</b>
             <br>
             <small>Please use a space or a comma between each tag.....</small>
           </label>
           <input class="form-control register" placeholder="Spicy Vegetarian, Mild etc..."
-            name="tag_string"></input>
+            name="tag_string">
         </div>
         {% elif page == 'update' %}
         <div class="mb-3">
-          <label for="tag input" class="form-label"><b>Enter new tags</b>
+          <label class="form-label"><b>Enter new tags</b>
             <br>
             <small>Please use a space or a comma between each new tag.....</small>
           </label>
           <input class="form-control register" placeholder="Spicy Vegetarian, Mild etc..."
-            name="tag_string"></input>
+            name="tag_string">
           <div>
             <p><small>**Warning**</small></p>
             <p class="tag-warning"><small>New tags will overwrite old tags.</small></p>
@@ -72,7 +72,7 @@
         <button type="submit" class="btn btn-primary">Save Recipe</button>
       </form>
     </div>
-  </section>
+  </div>
 
 </main>
 

@@ -4,8 +4,9 @@
 
 <!-- Private message template -->
 <main class="container">
+  <a href="{% url 'inbox' %}" class="btn back-btn">Back</a>
   <section class="row justify-content-center g-0 mt-2">
-    <a href="{% url 'inbox' %}"><button class="btn back-btn">Back</button></a>
+    
     <div class="col-12 col-md-8 col-lg-7 col-xl-5 p-4 mb-5 card-message border border-dark border-2 rounded-4">
       <div class="col-12 card-message">
         <h4>Message from:</h4>
@@ -23,13 +24,13 @@
         <br>
         <!-- Check to see if user is registered, if so offer reply functionality -->
         {% if message.sender.id %}
-        <a href="{% url 'reply_message' message.sender.id %}"><button class="btn">Reply</button></a>
-        <a href="{% url 'delete_message' message.id %}"><button class="btn">Delete</button></a>
+        <a href="{% url 'reply_message' message.sender.id %}" class="btn">Reply</a>
+        <a href="{% url 'delete_message' message.id %}" class="btn">Delete</a>
         {% else %}
         <hr>
         I can be contacted at: {{message.email}}
         <hr>
-        <a href="{% url 'delete_message' message.id %}"><button class="btn">Delete</button></a>
+        <a href="{% url 'delete_message' message.id %}" class="btn">Delete</a>
         {% endif %}
       </div>
     </div>

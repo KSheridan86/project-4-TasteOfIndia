@@ -7,8 +7,9 @@
 <main class="container">
     <div class="row justify-content-center g-0">
         <div
-            class="col-11 col-md-6 col-lg-5 col-xl-4 p-2 mb-5 card-welcome border border-dark border-2 rounded-4 justify-content-center">
+            class="col-11 col-md-6 col-lg-5 col-xl-4 p-0 mb-5 card-welcome border border-dark border-2 rounded-4 justify-content-center">
             <form method="POST" action="{% url 'sign_in' %}">
+                <h4>Log In</h4>
                 {% csrf_token %}
                 <div class="mb-3">
                     <label for="username" class="form-label">Username</label>
@@ -22,51 +23,11 @@
                     <input type="password" name="password" class="form-control" id="password" placeholder="********">
                 </div>
 
-
-
-                <!-- What the fuck is going on here????? -->
+                <button type="submit" class="btn btn-primary login-register">Log In</button>
                 
-
-                <!-- This works perfectly -->
-                <!-- **Error** The element button must not appear as a descendant of the a element. -->
-                
-                <!-- <a href="{% url 'sign_in' %}">
-                    <button type="submit" class="btn btn-primary login-register">
-                        Log In
-                    </button>
-                </a> -->
-
-
-
-                <!-- Doesn't log me in with button click, pressing enter on keyboard does -->
-                <!-- **Error** The element a must not appear as a descendant of the button element. -->
-                
-                <!-- <button type="submit" class="btn btn-primary login-register">
-                    <a href="{% url 'sign_in' %}">
-                        Log In
-                    </a>
-                </button> -->
-
-
-
-                <!-- This works perfectly -->
-                
-                <!-- **Error** Attribute href not allowed on element button at this point. -->
-                <!-- <button type="submit" class="btn btn-primary login-register" href="{% url 'sign_in' %}">Log In</button> -->
-                
-
-
-                <!-- Doesn't log me in with button click, pressing enter on keyboard does -->
-                
-                <!-- **Error** Bad value submit for attribute type on element a: Subtype missing. -->
-                <!-- <a href="{% url 'sign_in' %}" type="submit" class="btn btn-primary login-register">Log In</a> -->
-
-
-
                 <hr>
                 <p>Don't have an account? <br> Register here...</p>
-                <button type="submit" class="btn btn-primary"><a class="login-register"
-                        href="{% url 'register' %}">Register</a></button>
+                <a class="login-register btn btn-primary" href="{% url 'register' %}">Register</a>
             </form>
         </div>
     </div>
@@ -76,11 +37,12 @@
 <main class="container">
     <section class="row justify-content-center g-0 mb-5">
         <div
-            class="col-11 col-md-6 col-lg-5 col-xl-4 p-2 card-welcome border border-dark border-2 rounded-4 justify-content-center">
+            class="col-11 col-md-6 col-lg-5 col-xl-4 p-0 card-welcome border border-dark border-2 rounded-4 justify-content-center">
             <form method="POST" action="{% url 'register' %}">
+                <h4>Create Account</h4>
                 {% csrf_token %}
                 {% for field in form %}
-                <label for="inputtxt">{{field.label}}</label>
+                <label>{{field.label}}</label>
                 {{field}}
                 
                 {% for error in field.errors %}
@@ -90,12 +52,11 @@
                 {% endfor %}
                 
                 {% endfor %}
-                <input type="submit" value="Register" class="btn btn-primary" />
+                <input type="submit" value="Register" class="btn btn-primary">
                 <hr>
                 <p>Already have an account? <br> Sign in here...</p>
-                <button type="submit" class="btn btn-primary"><a class="login-register" href="{% url 'sign_in' %}">Sign
-                        In</a>
-                </button>
+                
+                <a class="login-register btn btn-primary" href="{% url 'sign_in' %}">Sign In</a>
             </form>
         </div>
     </section>
