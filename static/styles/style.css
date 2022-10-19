@@ -352,7 +352,8 @@ textarea {
     margin-bottom: 2rem;
 }
 .recipe-added {
-    margin-top: -1.5rem;
+
+    font-size: .75rem;
 }
 
 /* Profiles page styles */
@@ -724,6 +725,12 @@ textarea {
     }
 }
 @media (min-width: 1200px) {
+    .search-bar {
+        width: 60%;
+    }
+    .form-control {
+        width: 60%;
+    }
     #myprofile {
         margin-top: -3rem;
         position: fixed;
