@@ -78,6 +78,7 @@ def edit_account(request):
         form = ProfileForm(request.POST, request.FILES, instance=profile)
         if form.is_valid():
             form.save()
+            messages.success(request, 'Profile Updated!')
             return redirect('user_profile', pk=profile.id)
     context = {
         'form': form
@@ -90,6 +91,7 @@ def delete_account(request):
     profile = request.user.profile
     if request.method == 'POST':
         profile.delete()
+        messages.success(request, 'Account Deleted!')
         return redirect('landingpage')
     return render(request, 'users/delete_user.html')
 

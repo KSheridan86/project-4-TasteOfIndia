@@ -280,14 +280,14 @@ User Story:
 > Create a User Account - As a User, I would like to be able to create an account, so that I can create and save recipes
 
 Acceptance Criteria:
-* Given that I am an unregistered user, When I am on the homepage, Then I can see a button to sign up, And, When I click on the button, Then I am taken to the user registration page
+* Given that I am an unregistered user, When I am on the homepage, Then I can see a button to sign up, And, When I click on the button, Then I am taken to the user registration page.
 * Given that I am an unregistered user, And, I am on the user registration page, When I enter my username, email address and password, And, I click on the register button, Then The system creates me an account, And, signs me in.
-* Given that I have an account, And, I am signed into the account, When I have an option to create a recipe, And, when I click on that option, Then I am taken to a page where I can provide the details of my recipe
+* Given that I have an account, And, I am signed into the account, When I have an option to create a recipe, And, when I click on that option, Then I am taken to a page where I can provide the details of my recipe.
 
 Implementation of tests:
-* Clearly accessible call to action on homepage to register for an account
-* Clearly accessible link to login or register within main navigation bar
-* Easy to use User registration process
+* Check for clearly accessible call to action on homepage to register for an account and that it works as expected.
+* Clearly accessible link to login or register within main navigation bar and that it functions correctly.
+* Easy to use User registration process, user account and profile is created upon submission.
 * Clear UX design, prevent unnecessary links to register as a user, if user is already logged in.
 
 All Tests Passed &#x2611;
@@ -297,13 +297,13 @@ All Tests Passed &#x2611;
 
 User Story:
 
-> Users can view their profile - As a User, I would like to be able to see the details in my user profile, so that I can see what information other users can see about me
+> Users can view their profile - As a User, I would like to be able to see the details in my user profile, so that I can see what information other users can see about me.
 
 Acceptance Criteria:
-* Given that I am logged into my user account I can access an option to view my profile
+* Given that I am logged into my user account I can access an option to view my profile.
 
 Implementation of tests:
-* 
+* Once a user is registered a button giving them access to their account appears in the menu.
 
 All Tests Passed &#x2611;
 ---
@@ -312,17 +312,17 @@ All Tests Passed &#x2611;
 
 User Story:
 
-> Users can edit their profile - As a User, I would like to be able to edit my profile, so that I can keep the information upto date
+> Users can edit their profile - As a User, I would like to be able to edit my profile, so that I can keep the information upto date.
 
 Acceptance Criteria:
-* Given that I am logged into my account when I am viewing my profile then I should be able to edit the details
-* Given that I am logged into my account when I click on the edit button on my profile page then I should be taken to a page to edit the details
-* Given that I am not logged into my account when I view my profile page, or anyone elses then I should not be able to see the edit button
+* Given that I am logged into my account when I am viewing my profile then I should be able to edit the details.
+* Given that I am logged into my account when I click on the edit button on my profile page then I should be taken to a page to edit the details.
+* Given that I am not logged into my account when I view my profile page, or anyone elses then I should not be able to see the edit button.
 * Given that I am not logged into my account when I type in the address to edit my profile, or anyone elses then I should be redirected to the log in page.
 
 Implementation of tests:
-* Provide a clearly accessible button on a user's profile for the profile owner only, so they can edit their profile
-* Provide a simple and clear edit profile form, linked from the edit profile button
+* Provide a clearly accessible button on a user's profile for the profile owner only, so they can edit their profile.
+* Provide a simple and clear edit profile form, linked from the edit profile button.
 
 All Tests Passed &#x2611;
 ---
@@ -331,18 +331,18 @@ All Tests Passed &#x2611;
 
 User Story:
 
-Users can delete their account - As a User, I can delete my account, so that I can remove my details and recipes at my request 
+Users can delete their account - As a User, I can delete my account, so that I can remove my details and recipes at my request.
 
 Acceptance Criteria:
-* Given that I am a registered user when I navigate to my account then I have an option to delete my account
-* Given that I am a registered user viewing my account details when I click on the option to delete my account then I am requested to confirm the request
+* Given that I am a registered user when I navigate to my account then I have an option to delete my account.
+* Given that I am a registered user viewing my account details when I click on the option to delete my account then I am requested to confirm the request.
 * Given that I am a registered user viewing my account details when I click on the option to delete my account
-And, When I confirm the request then My account and the recipes that I have created are deleted
-* Given that I am a registered user when I delete my account then I should receive confirmation of the account deletion
+And, When I confirm the request then My account and the recipes that I have created are deleted.
+* Given that I am a registered user when I delete my account then I should receive confirmation of the account deletion.
 
 Implementation of tests:
-* Provide users with an easily accessible option to delete their account
-* Provide users with a secure confirmation process to confirm account deletion requests to prevent accidents
+* Provide users with an easily accessible option to delete their account.
+* Provide users with a secure confirmation process to confirm account deletion requests to prevent accidents.
 * Link all user created elements so that when a user deletes their account, all associated records are deleted.
 * Provide the user with confirmation that their account has been deleted.
 
@@ -353,15 +353,15 @@ All Tests Passed &#x2611;
 
 User Story:
 
-> User Account Login / Logout - As a User, I would like to be able to login or logout of my account, so that I can keep my account secure
+> User Account Login / Logout - As a User, I would like to be able to login or logout of my account, so that I can keep my account secure.
 
 Acceptance Criteria:
-* Given that I am a registered user, who is not logged in when I navigate to the sign in page and I enter my credentials correctly and press sign in then I am signed into my account
-* Given that I am a registered user, who is currently logged in when I click on the sign out link then I am signed out of my account
-* Given that I am a registered user, who has signed out of my account when I use the browser navigation buttons such as back button then I can not access information which requires me to be signed in
+* Given that I am a registered user, who is not logged in when I navigate to the sign in page and I enter my credentials correctly and press sign in then I am signed into my account.
+* Given that I am a registered user, who is currently logged in when I click on the sign out link then I am signed out of my account.
+* Given that I am a registered user, who has signed out of my account when I use the browser navigation buttons such as back button then I can not access information which requires me to be signed in.
 
 Implementation of tests:
-* Provide login and logout functionality
+* Provide login and logout functionality.
 * Secure restricted pages from access when a user is not signed in.
 
 All Tests Passed &#x2611;
@@ -371,17 +371,16 @@ All Tests Passed &#x2611;
 
 User Story:
 
-> Features restricted to signed in users - As a Site Owner, I would like to restrict some features of the site to registered users, so that it encourages people to sign up to the site
+> Features restricted to signed in users - As a Site Owner, I would like to restrict some features of the site to registered users, so that it encourages people to sign up to the site.
 
 Acceptance Criteria:
-* Given that a user is not registered or signed in, when they look at a recipe then they do not have the ability to create a recipe
-* Given that a user is not registered or signed in, when they look at a recipe then they are unable to leave a comment
+* Given that a user is not registered or signed in, when they look at a recipe then they do not have the ability to create a recipe.
+* Given that a user is not registered or signed in, when they look at a recipe then they are unable to leave a comment.
 * Given that a user is not registered or signed in, when they encounter functionality that requires them to be signed in then they are redirected to the login or register page.
 
 Implementation of tests:
-* Restrict the ability to save a recipe to authenticated users
-* Restrict the ability to create a recipe to authenticated users
-* Restrict the ability to like a recipe to authenticated users
+* Restrict the ability to create a recipe to authenticated users.
+* Restrict the ability to comment on recipes to authenticated users.
 * Redirect users who make a request for functionality that requires them to be authenticated users to the login page
 
 All Tests Passed &#x2611;
@@ -391,15 +390,15 @@ All Tests Passed &#x2611;
 
 User Story:
 
-> Create a Recipe - As a User, I would like to be able to share my own recipes, with family and friends
+> Create a Recipe - As a User, I would like to be able to share my own recipes, with family and friends.
 
 Acceptance Criteria:
-* Given that I am a logged in user when I navigate to the recipe section then I have the option to create a recipe
-* Given that I have created a recipe as a logged in user when I save the completed recipe then it is available to other users to view
+* Given that I am a logged in user when I navigate to the recipe section of my account then I have the option to create a recipe.
+* Given that I have created a recipe as a logged in user when I save the completed recipe then it is available to other users to view.
 
 Implementation of tests:
-* Provide authenticated users with a clear option to create a recipe
-* Make saved recipes available to other users to view
+* Provide authenticated users with a clear option to create a recipe.
+* Make saved recipes available to other users to view.
 
 All Tests Passed &#x2611;
 ---
@@ -408,15 +407,15 @@ All Tests Passed &#x2611;
 
 User Story:
 
-> View Recipes - As a User, I can access the recipes on the site, so that I can follow them at home
+> View Recipes - As a User, I can access the recipes on the site, so that I can follow them at home.
 
 Acceptance Criteria:
-* Given that I am a user on the site when I navigate to the recipes page then I am presented with a list of the recipes available
-* Given that I am a user on the site when I navigate to the recipes page And When I click on a recipe then I am presented with the full recipe details
+* Given that I am a user on the site when I navigate to the recipes page then I am presented with a list of the recipes available.
+* Given that I am a user on the site when I navigate to the recipes page And When I click on a recipe then I am presented with the full recipe details.
 
 Implementation of tests:
-* Provide users of the site with the ability to access all recipes
-* Provide users of the site with the ability to access the full recipe details from the recipe summary card
+* Provide users of the site with the ability to access all recipes.
+* Provide users of the site with the ability to access the full recipe details from the recipe summary card.
 
 All Tests Passed &#x2611;
 ---
@@ -425,17 +424,17 @@ All Tests Passed &#x2611;
 
 User Story:
 
->  Update a recipe - As a user, I can update a recipe that I have created, so that I can correct any mistakes I may have made
+>  Update a recipe - As a user, I can update a recipe that I have created, so that I can correct any mistakes I may have made.
 
 Acceptance Criteria:
-* Given that I am a registered user who has created a recipe when I navigate to my profile page then I have the option to edit the details of my recipes
-* Given that I am a registered user when I navigate to someone else's recipe then I do not get the edit option
+* Given that I am a registered user who has created a recipe when I navigate to my profile page then I have the option to edit the details of my recipes.
+* Given that I am a registered user when I navigate to someone else's recipe then I do not get the edit option.
 
 Implementation of tests:
 * Provide easy access to recipe owners to edit recipes.
-* Prevent other users from editing a recipe they did not create
-* Provide a method for recipe owners to edit the recipe details - form
-* Ensure recipe edits are saved to the database and users are informed of changes
+* Prevent other users from editing a recipe they did not create.
+* Provide a method for recipe owners to edit the recipe details.
+* Ensure recipe edits are saved to the database and users are informed of changes.
 
 All Tests Passed &#x2611;
 ---
@@ -444,19 +443,19 @@ All Tests Passed &#x2611;
 
 User Story:
 
-> Delete a recipe - As a user, I can delete a recipe that I have created, so that I can remove it from the site
+> Delete a recipe - As a user, I can delete a recipe that I have created, so that I can remove it from the site.
 
 Acceptance Criteria:
-* Given that I am a registered user who is logged in, and has created a recipe when I navigate to my profile page then I have the option to delete my recipes
-* Given that I am a registered user who is logged in, has created a recipe and I am viewing the recipe I wish to delete when I click the delete recipe button then I receive a confirmation window to confirm that I really want to delete the recipe
-* Given that I am a registered user who is logged in, has created a recipe, navigated to that recipe and clicked on the delete recipe button when the confirmation window appears and I confirm the deletion then the recipe is deleted from the system
-* Given that I am a registered user, or a non registered user when I navigate to a recipe page that I did not create then I do not have the option to delete the recipe
+* Given that I am a registered user who is logged in, and has created a recipe when I navigate to my profile page then I have the option to delete my recipes.
+* Given that I am a registered user who is logged in and wishes to delete a recipe, when I click the delete recipe button then I receive a confirmation window to confirm that I really want to delete the recipe.
+* Given that I am a registered user who is logged in, has created a recipe, navigated to that recipe and clicked on the delete recipe button when the confirmation window appears and I confirm the deletion then the recipe is deleted from the system.
+* Given that I am a registered user, or a non registered user when I navigate to a recipe page that I did not create then I do not have the option to delete the recipe.
 
 Implementation of tests:
-* Provide recipe owners with the option to delete their recipe
-* Provide recipe deletion requests with a confirmation window to prevent mistakes
+* Provide recipe owners with the option to delete their recipe.
+* Provide recipe deletion requests with a confirmation window to prevent mistakes.
 * Ensure confirmed deletion requests are processed on the database correctly.
-* Prevent unauthorised access to recipe deletion functionality
+* Prevent unauthorised access to recipe deletion functionality.
 
 All Tests Passed &#x2611;
 ---
@@ -465,15 +464,15 @@ All Tests Passed &#x2611;
 
 User Story:
 
-> Recipe Searching - As a User, I would like to be able to find recipes, so that I can increase the variety of meals we consume.
+> Recipe Searching - As a User, I would like to be able to find recipes.
 
 Acceptance Criteria:
-* Given that I am a user of the website when I navigate to the homepage then I can access a link to all the recipes
-* Given that I am a user of the website when I want to view a specific recipe then I can access the full recipe details by clicking on the recipe
+* Given that I am a user of the website when I navigate to the homepage then I can access a link to all the recipes.
+* Given that I am a user of the website when I want to view a specific recipe then I can access the full recipe details by clicking on the recipe.
 
 Implementation of tests:
-* Provide ease of access to full recipe list
-* Provide users with the ability to access full recipe details from the summary card
+* Provide ease of access to full recipe list.
+* Provide users with the ability to access full recipe details from the summary card.
 
 All Tests Passed &#x2611;
 ---
@@ -482,15 +481,15 @@ All Tests Passed &#x2611;
 
 User Story:
 
-> Recipe Search - Advanced - As a User, I would like to be able to search the recipes, so that I can find the ones that match my fancy at that point in time
+> Recipe Search - Advanced - As a User, I would like to be able to search the recipes, so that I can find the ones that match my fancy at that point in time.
 
 Acceptance Criteria:
-* Given that I am a user of the website when I navigate to the site then I can access a search function to access related recipes
-* Given that I am a user of the website when I search the recipes then the search results show relevant recipes
+* Given that I am a user of the website when I navigate to the site then I can access a search function to access related recipes.
+* Given that I am a user of the website when I search the recipes then the search results show relevant recipes.
 
 Implementation of tests:
-* Provide all users the ability to search the recipes
-* Enable search query to match with recipe title and recipe author
+* Provide all users the ability to search the recipes.
+* Enable search query to match with recipe title, ingredients and author.
 
 All Tests Passed &#x2611;
 ---
@@ -499,16 +498,16 @@ All Tests Passed &#x2611;
 
 User Story:
 
-> Clear Recipe Layout - As a User, I would like clear instructions on how to make each recipe, so that I am able to follow along as an inexperienced cook
+> Clear Recipe Layout - As a User, I would like clear instructions on how to make each recipe, so that I am able to follow along as an inexperienced cook.
 
 
 Acceptance Criteria:
-* Given that I am a user when I click on a recipe to view the details then The instructions on how to make the recipe are clearly accessible
-* Given that I am a user accessing the recipe details when I access a recipe instructions then they should be easily to identify the order in which they should be followed
+* Given that I am a user when I click on a recipe to view the details then The instructions on how to make the recipe are clearly accessible.
+* Given that I am a user accessing the recipe details when I access a recipe instructions then they should be easy to follow.
 
 Implementation of tests:
-* Provide users with a clean and simple recipe detail page layout
-* Provide users with a easy to follow instruction list 7
+* Provide users with a clean and simple recipe detail page layout.
+* Provide users with a easy to follow instruction list.
 
 All Tests Passed &#x2611;
 ---
@@ -517,16 +516,16 @@ All Tests Passed &#x2611;
 
 User Story:
 
-> Responsive Templates - As a Site Owner, I would like my site to be fully responsive, so that Users accessing the site from different devices have an enjoyable experience
+> Responsive Templates - As a Site Owner, I would like my site to be fully responsive, so that Users accessing the site from different devices have an enjoyable experience.
 
 Acceptance Criteria:
-* Given that I am a user accessing the site on my smartphone when I navigate through the site then all pages should be formatted to my device
-* Given that I am a user accessing the site on my tablet when I navigate through the site then all pages should be formatted to my device
-* Given that I am a user accessing the site on my laptop when I navigate through the site then all pages should be formatted to my device screen
-* Given that I am a user accessing the site on my desktop computer when I navigate the site then all pages should be formatted to suit my screen size
+* Given that I am a user accessing the site on my smartphone when I navigate through the site then all pages should be formatted to my device.
+* Given that I am a user accessing the site on my tablet when I navigate through the site then all pages should be formatted to my device.
+* Given that I am a user accessing the site on my laptop when I navigate through the site then all pages should be formatted to my device.
+* Given that I am a user accessing the site on my desktop computer when I navigate the site then all pages should be formatted to suit my screen size.
 
 Implementation of tests:
-* Provide users with a fully responsive site that responds to mobile, tablet, laptop and desktop sized devices
+* Provide users with a fully responsive site that responds to mobile, tablet, laptop and desktop sized devices.
 
 
 All Tests Passed &#x2611;
@@ -539,7 +538,7 @@ All Tests Passed &#x2611;
 
 ## Bugs
 
-The use of CloudinaryFields for the images in the recipe and profile models does not enforce input validation to image file types. I could also not find anything related to enforcing the file types within the cloudinary documentation. This enabled users to attempt to upload non-image file types. To combat this issue, within the view that handles the form submission, I utilised a try, except statement that attempts to upload the file, but if the upload fails due to the file type error on the cloudinary servers, it gracefully handles the error and provides the user with an error message informing them what happened and why. This prevents users from breaking the functionality of the site, whilst still enabling them to correct the file they are trying to upload.
+Tags issue:
 
 To add Tags to the Recipes I had implemented a check box for users to select which tags were appropriate, this worked in the admin panel but unfortunately would not save the tags when used in the front end by the user.
 When no fix could be found for this I used a different approach.
@@ -559,13 +558,13 @@ To resolve this I insured that if an empty input box was submitted then the curr
 
 * Python
 * Django
-    * Django was used as the main python framework in the development of this project
+    * Django was used as the main python framework in the development of this project.
 * Heroku
-    * Was used as the cloud based platform to deploy the site on
+    * Was used as the cloud based platform to deploy the site on.
 * Heroku PostgreSQL
     * Heroku PostgreSQL was used as the database for this project during development and in production.
 * JavaScript
-    * Custom JavaScript was utilised to allow Users to close site messages
+    * Custom JavaScript was utilised to allow Users to close site messages.
 * Bootstrap 5
     * Bootstrap was used for general layout and spacing requirements for the site.
 * Font Awesome
