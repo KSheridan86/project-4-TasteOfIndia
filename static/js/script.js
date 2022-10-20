@@ -5,14 +5,6 @@ let searchForm = document.querySelector('#searchForm');
 let pageBtn = document.querySelectorAll('.page-btn');
 let topBtn = document.querySelector('.back-to-top');
 
-// Function used in the if statement below
-function addClicks(event) {
-    event.preventDefault();
-    let page = this.dataset.page;
-    searchForm.innerHTML += `<input value=${page} name="page" hidden/>`;
-    searchForm.submit();
-}
-
 // Code to close the message boxes automatically and allow you to close them manually
 if (closealert) {
     messages.style.display = 'block';
@@ -26,8 +18,13 @@ if (closealert) {
 // Code to link search form and pagination together
 if (searchForm) {
     for (let i = 0; pageBtn.length > i; i++) {
-    pageBtn[i].addEventListener('click', addClicks() );
-    }
+    pageBtn[i].addEventListener('click', function (event) {
+        event.preventDefault();
+        let page = this.dataset.page;
+        searchForm.innerHTML += `<input value=${page} name="page" hidden/>`;
+        searchForm.submit();
+    });
+}
 }
 
 // Code to hide the back to top button until the user scrolls down
