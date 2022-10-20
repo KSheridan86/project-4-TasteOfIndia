@@ -268,9 +268,16 @@ Testing was divided into different sections to ensure everything was tested indi
 
 #### Validator Testing
 All code files were validated using suitable validators for the specific language.
-All code passed the validation.
+HTML & CSS code passed the validation.
+JavaScript code produced one warning about the use of an anonymous function within a loop.
+When this function was named and moved outside the loop but referenced inside the loop, it broke functionality.
+After attempting a few fixes I decided that an anonymous function inside a for loop was an acceptable JavaScript practice.
+All validation screenshots are included below.
+
+All HTML validation returned the same result so I have included only 1 screenshot here.
 ![HTML Validation](./docs/html-validation.png)
 ![CSS Validation](./docs/css%20validation.png)
+![JS Validation](./docs/jshint.png)
 
 ## Testing User Stories
 

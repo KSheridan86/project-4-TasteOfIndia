@@ -12,7 +12,7 @@ if (closealert) {
         messages.style.display = 'none');
     setTimeout(() => {
         messages.style.display = 'none';
-    }, 9000);
+    }, 2500);
 }
 
 // Code to link search form and pagination together
