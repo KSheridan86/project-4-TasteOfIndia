@@ -115,7 +115,7 @@ The plan for this project was carried out using the Agile Methodology in Github.
 
 8 Epics were created which were then further developed into 25 User Stories. The details on each epic, along with the user stories linked to each one can be found in the project kanban board [here](https://github.com/users/KSheridan86/projects/3)
 
-From the Epics, 25 User stories were developed. Each story was assigned a classification of Must-Have, Should-Have, Nice-to-Have or Won't Have. Each story was also assigned user story points, based on my best estimation for the time/difficulty of completing each story. A number of these stories were created based on an ideal scenario of building out the project whilst I knew in the time available it would be unlikely I would complete those stories.
+From the Epics, 28 User stories were developed. Each story was assigned a classification of Must-Have, Should-Have, Could-Have or Won't Have. Each story was also assigned user story points, based on my best estimation for the time/difficulty of completing each story. A number of these stories were created based on an ideal scenario of building out the project whilst I knew in the time available it would be unlikely I would complete those stories.
 
 ### Epics
 
@@ -178,69 +178,61 @@ These are the user stories that were completed within the projects first release
 ## Features
 
 **Features planned:**
-* User Profile - Create, Read, Update and Delete
-* Recipes - Users can create, read, update and delete their own recipes
-* Other Users Recipes - Users can read and comment on other users recipes
-* Profiles - Users can read other users profiles
-* Users can login to their account
-* Users can logout of their account
+* User Profile - Create, Read, Update and Delete.
+* Recipes - Users can create, read, update and delete their own recipes.
+* Other Users Recipes - Users can read and comment on other users recipes.
+* Profiles - Users can read other users profiles.
+* Users can login to their account.
+* Users can logout of their account.
 * Users need to be registered and logged in to access recipe creation and account editing.
-* Responsive Design - the site needs to be fully responsive to cover the wide variety of devices users may use to access a recipe site
+* Users can send each other private messages.
+* Responsive Design - the site needs to be fully responsive to cover the wide variety of devices users may use to access a recipe site.
 
 
 #### Home page
 A welcoming homepage was built to welcome the user to the site and clearly convey the sites purpose. The call to action for the user to search for recipes is at the top of the main page, with a large, hero like welcome message appearing just below. At the bottom of the page a clear comparison showing users the benefits of signing up to the site is displayed.
 
-![Home Page]()
+![Home Page](./docs/landingpage.png)
 
 #### Navigation Bar
 The main navigation bar appears at the top of the page, clearly displaying the main navigational links users would require.
 
-![Logged in User Nav Bar]()
+![Nav Bar](./docs/loggedout-navbar.png)
 
-A secondary user menu is available to users who are logged into the site, users who are not logged in receive a login/register link in its place
+A secondary user menu is available to users who are logged into the site.
 
-![logged in user nav bar user menu open]()
+![logged in user nav bar](./docs/loggedin-navbar.png)
 
 
 #### Footer
 A common footer is utilised throughout the site.
 
-![footer]()
+![footer](./docs/footer.png)
 
-#### Recipe Search
-Users have the ability to search the database of recipes against the recipe title, ingredients and the author of the recipes username.
+#### Recipe/User Search
+Users have the ability to search the database of recipes against the recipe title, ingredients and the author of the recipes username and the Users by their username/name.
 
-![Recipe search Desktop]()
+![Recipe search](./docs/search-bar.png)
 
 #### Recipe Cards
 Search results appear in the form of recipe summary cards. The cards show the user the title of the recipe, the featured image of the recipe, and the author of the recipe. This allows the users to quickly identify the recipes they would like to look at in more detail.
 
 ##### Standard Recipe Card
-![Standard Recipe Card]()
+![Standard Recipe Card](./docs/recipe-card.png)
 
 #### User Profile
 Users have the ability to create a profile. The user profile page provides the profile owner with quick access to edit and delete functionality.
 
-![Owner Profile Page]()
+![Owner Profile Page](./docs/user-profile.png)
 
 Users can also access their own recipes easily.
 
-![Easy Access to own and liked recipes]()
+![Easy Access to view/edit own recipes](./docs/recipe-crud.png)
 
 #### Edit Profile Page
 Users have the ability to edit their profiles on the site. The edit profile page is clearly laid out.
 
-![Edit profile page]()
-
-#### Create/Edit Recipe Page
-Users have the ability to create and edit their recipes. The create recipe and edit recipe page is clearly laid out.
-
-##### Recipe Form
-![Recipe Form]()
-
-#### Access to Edit Recipe and Delete Recipe Functionality
-Only the users that create the recipe can edit it or delete it.
+![Edit profile page](./docs/edit-profile.png)
 
 
 ## Future Enhancements
@@ -538,6 +530,94 @@ Implementation of tests:
 All Tests Passed &#x2611;
 ---
 
+-----
+
+User Story:
+
+> Comment on Recipes - As a User, I would like to be able to comment on Recipes, so that all users can give and receive feedback on Recipes.
+
+Acceptance Criteria:
+* Given that I am logged in I should be able to post comments and read other users comments.
+* Given that I am logged in I should be able to reply to comments left on Recipes .
+
+Implementation of tests:
+* Provide users with the ability to leave/view/reply to comments on Recipes.
+
+
+All Tests Passed &#x2611;
+---
+
+-----
+
+User Story:
+
+> Visit Inbox - As a logged in user, I should be able to navigate to my Inbox easily.
+
+Acceptance Criteria:
+* Given that I am a logged in user, it should be easy for me to navigate to my inbox.
+* Given that I am not logged in I should have no access to an inbox.
+
+Implementation of tests:
+* Provide users with a link to their inbox in the menu aswell as a clickable message icon in the navbar.
+* Ensure that users who are not logged in have no acces to an inbox.
+
+
+All Tests Passed &#x2611;
+---
+
+-----
+
+User Story:
+
+> Send Private Messages - As a User I should be able to send other users private messages.
+
+Acceptance Criteria:
+* Given that I am a user visiting another users profile page I should easily see a button to send a private message.
+
+Implementation of tests:
+* On all users account pages their is a button to send private messages.
+
+
+All Tests Passed &#x2611;
+---
+
+-----
+
+User Story:
+
+> Reply to private messages - As a logged in user I should be easily able to reply to private messages I have received through my inbox.
+
+Acceptance Criteria:
+* Given that I am a logged in user I can see a Reply button inside any private message I have received from another logged in user.
+* Given that I am a logged in user I can see an email address with which to respond to private messages from users who do not have an account.
+
+Implementation of tests:
+* Inside each private message received from a registered user there is a button to reply to that message.
+* Inside each private message received from a non-registered user their email address is clearly marked for responding to their message.
+
+
+All Tests Passed &#x2611;
+---
+
+-----
+
+User Story:
+
+> Delete private messages - As a logged in user I should be easily able to delete to private messages.
+
+Acceptance Criteria:
+* Given that I am a logged in user I can see a Delete button inside any private message I have received.
+* Given that I am a logged in user I can see a Delete button beside any message I have received in my inbox.
+* Given that I am a logged in user and I click the Delete message button I am shown a warning and asked to confirm that I wish to Delete this message.
+
+Implementation of tests:
+* Inside each private message received from a registered user there is a button to reply to that message.
+* Inside each private message received from a non-registered user their email address is clearly marked for responding to their message.
+* After the Delete button has been clicked a warning message appears to clarify that the message will be deleted.
+
+
+All Tests Passed &#x2611;
+---
 
 [Back to the Top](#table-of-contents)
 

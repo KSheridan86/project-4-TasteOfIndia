@@ -110,6 +110,9 @@ form {
     color: black;
     font-weight: bold;
 }
+.btn:hover {
+    background-color: #b50000;
+}
 .navbar-toggler {
     margin-right: .5rem;
 }
@@ -246,6 +249,9 @@ footer>p {
     font-weight: bold;
     width: 6rem;
 }
+.recipe-btn:hover {
+    background-color: #b50000;
+}
 .badge {
     background-color: #6c9a8b;
     height: 2rem;
@@ -353,10 +359,13 @@ textarea {
 }
 .recipe-added {
     font-size: .75rem;
-    margin-top: -1.2rem;
+    /* margin-top: -1.2rem; */
 }
 
 /* Profiles page styles */
+#msg-btn:hover {
+    background-color: #b50000;
+}
 .search-btn {
     background-color: #6c9a8b;
     border: 1px solid black;
@@ -538,6 +547,10 @@ textarea {
     }
 }
 @media (min-width: 767px) and (max-width: 1023px) {
+    .recipe-added {
+        font-size: .75rem;
+        margin-top: -1.2rem;
+    }
     .card-img-top {
         width: 80%;
         margin-bottom: 1rem;
@@ -614,6 +627,10 @@ textarea {
     }
 }
 @media (min-width: 1023px) and (max-width: 1199px) {
+    .recipe-added {
+        font-size: .75rem;
+        /* margin-top: -1.2rem; */
+    }
     #myprofile {
         margin-top: -4rem;
         position: fixed;
@@ -637,7 +654,7 @@ textarea {
         box-shadow: 2px 3px 12px 1px black;
     }
     .bio {
-        font-size: .9rem;
+        font-size: .85rem;
     }
     #recipe-card-main {
         height: 80vh;
@@ -655,7 +672,6 @@ textarea {
     }
     .btn {
         font-size: .9rem;
-        line-height: .8rem;
     }
     #msg-btn {
         height: 2.5rem;
@@ -730,6 +746,10 @@ textarea {
     }
 }
 @media (min-width: 1200px) {
+    .recipe-added {
+        font-size: .75rem;
+        margin-top: -.5rem;
+    }
     .search-bar {
         width: 60%;
     }
@@ -754,7 +774,7 @@ textarea {
         height: 90%;
     }
     .bio {
-        font-size: 1.1rem;
+        font-size: 1rem;
     }
     #bio-img {
         height: 5rem;
