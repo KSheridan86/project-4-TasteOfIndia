@@ -110,9 +110,6 @@ form {
     color: black;
     font-weight: bold;
 }
-.btn:hover {
-    background-color: #b50000;
-}
 .navbar-toggler {
     margin-right: .5rem;
 }
@@ -249,9 +246,6 @@ footer>p {
     font-weight: bold;
     width: 6rem;
 }
-.recipe-btn:hover {
-    background-color: #b50000;
-}
 .badge {
     background-color: #6c9a8b;
     height: 2rem;
@@ -359,13 +353,9 @@ textarea {
 }
 .recipe-added {
     font-size: .75rem;
-    /* margin-top: -1.2rem; */
 }
 
 /* Profiles page styles */
-#msg-btn:hover {
-    background-color: #b50000;
-}
 .search-btn {
     background-color: #6c9a8b;
     border: 1px solid black;
@@ -548,8 +538,7 @@ textarea {
 }
 @media (min-width: 767px) and (max-width: 1023px) {
     .recipe-added {
-        font-size: .75rem;
-        margin-top: -1.2rem;
+        display: none;
     }
     .card-img-top {
         width: 80%;
@@ -610,6 +599,7 @@ textarea {
     }
     #msg-btn {
         margin-top: 2rem;
+        line-height: .8rem;
     }
     .recipe-img {
         width: 75%;
@@ -628,8 +618,7 @@ textarea {
 }
 @media (min-width: 1023px) and (max-width: 1199px) {
     .recipe-added {
-        font-size: .75rem;
-        /* margin-top: -1.2rem; */
+        display: none;
     }
     #myprofile {
         margin-top: -4rem;
@@ -740,15 +729,14 @@ textarea {
         margin-bottom: 1rem;
     }
     .tablet-font {
-        font-size: .9rem;
+        font-size: 1rem;
         padding: 0rem;
         margin-top: -.5rem;
     }
 }
 @media (min-width: 1200px) {
     .recipe-added {
-        font-size: .75rem;
-        margin-top: -.5rem;
+        display: none;
     }
     .search-bar {
         width: 60%;
@@ -824,7 +812,7 @@ textarea {
         margin-bottom: .75rem;
     }
     .tablet-font {
-        font-size: .9rem;
+        font-size: 1rem;
         padding: 0rem;
         margin-top: -.5rem;
     }
