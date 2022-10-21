@@ -379,6 +379,7 @@ textarea {
 .chef-profile {
     height: 100%;
     width: 100%;
+    object-fit: cover;
 }
 #profile-content {
     margin-top: 1rem;

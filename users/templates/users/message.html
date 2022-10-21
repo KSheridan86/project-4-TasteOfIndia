@@ -13,14 +13,14 @@
         {% if message.sender %}
         <a href="{% url 'user_profile' message.sender.id %}"><span class="msg-txt">{{message.name}}</span></a>
         {% else %}
-        <span class="msg-txt">{{message.name}}</span>
+        <span class="msg-txt">{% if message.name == None %} Sender did not provide their name. {% else %}{{message.name}}{% endif %}</span>
         {% endif %}
         <hr>
         <h4>Subject:</h4>
-        <span class="msg-txt">{{message.subject}}</span>
+        <span class="msg-txt">{% if message.subject == None %} Sender did not provide a subject. {% else %}{{message.subject}}{% endif %}</span>
         <hr>
         <h4>Message:</h4>
-        <span class="msg-txt">{{message.body|linebreaksbr}}</span>
+        <span class="msg-txt">{% if message.body == None %} Sender did not include a message. {% else %}{{message.body|linebreaksbr}}{% endif %}</span>
         <br>
         <!-- Check to see if user is registered, if so offer reply functionality -->
         {% if message.sender.id %}
@@ -28,7 +28,10 @@
         <a href="{% url 'delete_message' message.id %}" class="btn">Delete</a>
         {% else %}
         <hr>
+        {% if message.email == None %} Sender did not provide an email address. 
+        {% else %}
         I can be contacted at: {{message.email}}
+        {% endif %}
         <hr>
         <a href="{% url 'delete_message' message.id %}" class="btn">Delete</a>
         {% endif %}
