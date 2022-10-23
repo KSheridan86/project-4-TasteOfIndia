@@ -113,9 +113,9 @@ Light Green: #6e9d6c
 
 The plan for this project was carried out using the Agile Methodology in Github. User Stories were created using issues on git hub. Each user story explicitly explains the purpose of the issues. Each user story is segmented into acceptance criteria and tasks. It was prioritised using GitHub labels with different colors.
 
-8 Epics were created which were then further developed into 25 User Stories. The details on each epic, along with the user stories linked to each one can be found in the project kanban board [here](https://github.com/users/KSheridan86/projects/3)
+8 Epics were created which were then further developed into 29 User Stories. The details on each epic, along with the user stories linked to each one can be found in the project kanban board [here](https://github.com/users/KSheridan86/projects/3)
 
-From the Epics, 28 User stories were developed. Each story was assigned a classification of Must-Have, Should-Have, Could-Have or Won't Have. Each story was also assigned user story points, based on my best estimation for the time/difficulty of completing each story. A number of these stories were created based on an ideal scenario of building out the project whilst I knew in the time available it would be unlikely I would complete those stories.
+From the Epics, 29 User stories were developed. Each story was assigned a classification of Must-Have, Should-Have, Could-Have or Won't Have. Each story was also assigned user story points, based on my best estimation for the time/difficulty of completing each story. In practice some of these tasks were completed much quicker than anticipated and others took a little longer but overall the development went smoother than anticipated and the project was completed ahead of schedule. A number of these stories were chosen to be left out of the project as it was already quite big (I.E password reset or social media login) I was aware that as I approached the next project, PP5 - ECommerce these would be explained in more detail and I would get a chance to implement them properly.
 
 ### Epics
 
@@ -132,42 +132,42 @@ From the Epics, 28 User stories were developed. Each story was assigned a classi
 
 These are the user stories that were completed within the projects first release, by Epic.
 
-1. User Profile
+- User Profile
 	*  Create a User Account - As a User, I would like to be able to create an account, so that I can create and save recipes
 	*  Users can view their profile - As a User, I would like to be able to see the details in my user profile, so that I can see what  information other users can see about me
 	*  Users can edit their profile - As a User, I would like to be able to edit my profile, so that I can keep the information upto date
 	*  Users can delete their account - As a User, I can delete my account, so that I can remove my details and recipes at my request
 
-2. User sign in or sign out
+- User sign in or sign out
 	*  User Account Login / Logout - As a User, I would like to be able to login or logout of my account, so that I can keep my account secure
 	*  Features restricted to signed in users - As a Site Owner, I would like to restrict some features of the site to registered users, so that it encourages people to sign up to the site
 
-3. User recipes
+- User recipes
 	*  Create a Recipe - As a User, I would like to be able to share my own recipes, with family and friends so they can teach them to their own children and have fun experiences together baking
 	*  View Recipes - As a User, I can access the recipes on the site.
 	*  Update a recipe - As a user, I can update a recipe that I have created, so that I can correct any mistakes I may have made
 	*  Delete a recipe - As a user, I can delete a recipe that I have created, so that I can remove it from the site
 
-4. Recipe Interaction
+- Recipe Interaction
 	*  Leave Comments - As a User I can leave comments/feedback on Recipes I like/don't like
 	*  Respond to Comments - as a user I can respond to comments left on my or others Users Recipes
 
-5. Recipe searching
+- Recipe searching
 	*  Recipe Searching - As a User, I would like to be able to find Recipes, so that I can increase the variety of meals we consume.
 	*  Recipe Search - Advanced - As a User, I would like to be able to search the Recipes by title, ingredients or author, so that I can find the ones that match my fancy at that point in time
 
-6. Landing page
+- Landing page
 	*  As a User I would like to be brought to the landing page upon first visiting the site so that I can see what options are available to me
     *  As a User from the landing page I should have the option to view the Recipes or the Users
     *  As a User on the landing page I should be easily able to Log in or Register for an account
 
-7. Messaging
+- Messaging
     *  As a User I would like to be able to send private messages to other Users
     *  As a User I would like to be able to reply to received private messages
     *  As a User I should be able to delete received private messages
     *  As a User access to my inbox should be easy and straight forward
 
-8. Authorisation
+- Authorisation
 	*  As the site developer I would like to restrict Recipe CRUD functionality to logged in Users
     *  As the site developer I would like to restrict User Crud functionality to logged in Users 
 
@@ -206,6 +206,8 @@ A secondary user menu is available to users who are logged into the site.
 
 #### Footer
 A common footer is utilised throughout the site.
+The name is tongue in cheek and a reference to the working Burros I witnessed on a road trip across the American South-West.
+This is a domain owned by myself and one day will host all of my projects.
 
 ![footer](./docs/footer.png)
 
@@ -778,6 +780,13 @@ This can be done by:
 ## Credits
 
 All Images used across the site were sourced from either pexels.com, bbcgoodfood.com or (in the case of the user profiles created) freely available images of the subjects.
+The Black Icons used across the site were sourced from a number of locations, attributions below.
+- The map of India, (<a href="https://www.flaticon.com/free-icons/india" title="india icons">India icons created by Anditii Creative - Flaticon</a>) 
+- Picture of a Donkey, (<a href="https://www.flaticon.com/free-icons/donkey" title="donkey icons">Donkey icons created by PLANBSTUDIO - Flaticon</a>)
+- Taj-Mahal (<a href="https://www.flaticon.com/free-icons/taj-mahal" title="taj mahal icons">Taj mahal icons created by Freepik - Flaticon</a>)
+- Envelope, This was sourced from Font awesome.
+- Social media links were all sourced from Font Awesome.
+
 I relied heavily on the Code institute course work, particularly the Django walk through projects.
 Further research was done by building walk through projects available freely on youtube and Dennis Ivy's Django/Python course on Udemy.
 
@@ -787,6 +796,7 @@ Further research was done by building walk through projects available freely on 
 
 I would like to acknowledge the help and support given by my mentor Chris Quinn, he is never short of good ideas. 
 All of the students in my own study group aswell as all the students in the wider Code Institute Slack channels. My cohort Facilitator [Kasia](https://github.com/bezebee) and all of the staff at Code Institute. The sense of comraderie among all of these individuals has helped me to feel at home on my journey to a new career in programming.
+
 On top of all these wonderful people I can't forget to thank my wife Rebecca for her help and understanding, without which none of this would be possible.
 
 -----
@@ -794,6 +804,7 @@ On top of all these wonderful people I can't forget to thank my wife Rebecca for
 
 ## Author Info
 
+Ken Sheridan, Junior Full Stack Software Developer.
 - [GitHub](https://github.com/KSheridan86)
 - [Linkedin](https://www.linkedin.com/in/kensheridan86/)
 
