@@ -271,6 +271,17 @@ All HTML validation returned the same result so I have included only 1 screensho
 ![CSS Validation](./docs/css%20validation.png)
 ![JS Validation](./docs/jshint.png)
 
+
+#### Lighthouse Testing
+Below you can see the results of Googles Lighthouse Testing.
+
+![Lighthouse Testing](./docs/lighthouse-testing.png)
+
+
+#### Python/JavaScript Testing
+All Custom Python & JavaScript code was manually tested multiple times during and after development.
+This is reflected in the fact that all of the user stories below are working and have produced no errors in the terminal or the console.
+
 ## Testing User Stories
 
 ------
@@ -614,6 +625,27 @@ Implementation of tests:
 * Inside each private message received from a registered user there is a button to reply to that message.
 * Inside each private message received from a non-registered user their email address is clearly marked for responding to their message.
 * After the Delete button has been clicked a warning message appears to clarify that the message will be deleted.
+
+
+All Tests Passed &#x2611;
+---
+
+-----
+
+User Story:
+
+> Pagination, As a user only a limited number of recipes/profile should be visible on any given page and I should be provided with easy navigation links to move to next/previous page.
+
+Acceptance Criteria:
+* Given that I am a User I can see buttons to navigate through the page results.
+* Given that I am a User when I click on these buttons I am taken to the correct page.
+* Given that I am a User and I use the search functionality, the page navigation buttons should reflect the current search results
+
+Implementation of tests:
+* Pagination buttons are clearly visible at the bottom of the recipes/profiles pages.
+* When Clicked these buttons take the user to the desired page.
+* When a user user the search functionality the pagination shown is directly linked to the results of the user search.
+* 6 items are shown per page, this number works well across different devices, I.E Mobile = 1 column with 6 Items, Tablet = 2 columns with 3 items each, Desktop = 3 columns with 2 items each.
 
 
 All Tests Passed &#x2611;
